@@ -45,12 +45,16 @@ Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03
 
 The searchTerm1  is    <?php echo $_POST["searchTerm1"]; ?><br>
 The searchTerm2  is    <?php echo $_POST["searchTerm2"]; ?><br>
-Is the toggle button1 (bt1) checked = <?php echo $_POST["bt1"]; ?><br>
 Is the toggle button2 (bt2) checked = <?php echo $_POST["bt2"]; ?><br><br>
 
 <br>
 <br>
 
+<div class="row">
+<div class="col-12 col-sm-3 col-lg-3 left">right side bar
+<?php require("sidebar.php"); ?>
+</div>
+</div>
 
 
 <div class="col-12 col-sm-9 col-lg-9 main">main content
@@ -106,7 +110,23 @@ $sth->execute();
 
 <?php endforeach;?>
 
+
 </table>
+
+
+### HIGHLIGHT SEARCH TERM
+###   below is not working , following are some sites to get highlighting working
+###   https://www.daniweb.com/programming/web-development/threads/419745/how-to-highlight-the-search-result-from-the-mysql
+###   http://stackoverflow.com/questions/26322999/how-highlight-sql-results-that-are-like-the-keyword
+###   http://stackoverflow.com/questions/3064997/highlighting-data-values-in-a-sql-result-set
+###   http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html
+<?php   
+  $searchTerm1 = $_POST['searchTerm1'];
+  echo "
+    <script type=\"text/javascript\">
+    $('body').text().highlight('$searchTerm') 
+    </script>"; 
+?>
 
 
 
@@ -138,6 +158,8 @@ testing apache default location when started as roFromWeb
 <br>
 
 </div>
+
+
 
 </body>
 
