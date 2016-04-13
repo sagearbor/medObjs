@@ -10,15 +10,11 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"> 
 <br>
-<br>
-<br>
-<br>
-
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingFive">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          Discipline
+          <b>Discipline </b>
         </a>
       </h4>
     </div>
@@ -37,7 +33,7 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
             <div class="input-group">
               <!--  <div class="input-group">   -->
               <span class="input-group-addon">
-                <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="cb_<?php echo $row['displayName']; ?>" checked aria-label="...">
+                <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['displayName']; ?>" checked aria-label="...">
               </span><label><?php echo $row['displayName']; ?></label>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>
@@ -119,6 +115,11 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
 
 
   </div>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
 </div>
 
 

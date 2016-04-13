@@ -1,23 +1,61 @@
 
-<!-- 
-footer {
-    background-color: #f5f5f5;
-    bottom: -100px;
-    height: 60px;
-    position: absolute;
-    width: 100%;
+/*  <style type="text/css">  
+*/
+
+body {
+background-image: url("http://svn.red-bean.com/repos/kfogel/trunk/www/images/parchment-background.jpg");
+z-index: -1;
+}
+/*
+.panel-group {   
+    background-color:rgba(0, 0, 0, 0.2);
+*/  /*    background-color: #cccccc;  */
+}
+.panel-group2 {   
+    background-color:rgba(0, 0, 0, 0.0);
+    font-weight: bold;
 }
 
--->
 
-
-<style type="text/css">
-.panel-group {
+.sbBG {
     background-image: url("https://pixabay.com/static/uploads/photo/2014/04/02/10/55/health-304919_960_720.png");
-    background-color: #cccccc;
     background-repeat: no-repeat;
+    background-size: contain;  
+    /* background-size: cover;  */
+        opacity: 0.8;
+    background-position: bottom;
+z-index: 33;
+    /* max-width: 100%;  */
 }
-</style>
+
+/*
+    .panel-transparent {
+        background: none;
+    }
+    .panel-transparent .panel-heading{
+        background: rgba(122, 130, 136, 0.2)!important;
+    }
+    .panel-transparent .panel-body{
+        background: rgba(46, 51, 56, 0.2)!important;
+    }
+*/
+
+    .panel-default{
+    background-color: transparent;
+    border: 1px #222;}
+    .panel-heading{
+    background-color: transparent;
+    border: 1px #222;}
+    .panel-title{
+    background-color: transparent;
+    border: 1px #222;}
+    .collapsed{
+    background-color: transparent;
+    }
+    .row{
+    background-color: transparent;
+    border: 1px #222;}
+
 
 
 
@@ -34,21 +72,24 @@ footer {
 
 
 
-	.wrap {
-		position:relative;
-		margin:0 auto;
+        .wrap {
+                position:relative;
+                margin:0 auto;
                /*replace 900px with your width*/
-		width:900px;
-	}
+                width:900px;
+        }
 
-	#header, #footer {
-		width:100%;
-		float:left;
-	}
+        #header, #footer {
+                width:100%;
+                float:center;
+        }
 
-	#footer {
-		position:fixed;
-		bottom:0;
-		z-index:999999;
-	}
+        #footer {
+                position:fixed;
+                bottom:0;
+                z-index:999999;
+        }
+
+/* </style>  */
+
 

@@ -17,7 +17,7 @@
 <title> Medical School objectives DB </title><br>
 <h1 class="text-center"> Medical School objective DB  </h1><br>
 <h2 class="text-center"> A searchable database from multiple national societies </h2><br>
-<link type="text/css" rel="stylesheet"> </link>
+<link type="text/css" rel="stylesheet" href="site.css" </link>
 </head>
 
 <body>
@@ -35,7 +35,10 @@ Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03
 -->
 <div>
 <div class="col-12 col-sm-3 col-lg-3 left">  Select disciplines or societies to search below (all are included by default)
+<br>
+<div class="sbBG">
 <?php require("sidebar.php"); ?>
+</div>
 </div>
 
 
@@ -92,17 +95,13 @@ Enter search term below <br>
 </body>
 
 
-     <div id="footer">
-          <div class="wrap">
-               <p>This would be your footer content!</p>
-          </div>
-     </div>
+<div id="footer">
+ <div class="wrap">
+   <a href="./contact.html">Contact   |</a>
+   <a href="./about.html">   About   |</a>
+   <a href="./help">   Help</a>
+ </div>
+</div>
 
-<!--   <footer class="text-right">   -->
-<footer>
-    <a href="./contact.html">Contact   |</a>
-    <a href="./about.html">   About   |</a>
-    <a href="./help">   Help</a>
-</footer>
 
 </html>
