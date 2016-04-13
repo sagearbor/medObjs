@@ -29,19 +29,20 @@ Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03
 <br>
 <br>
 
-
+<form action="sqlQuery.php" method="post" class="form-horizontal" role="form">
+<!-- 
 <div class="row">
-<div class="col-12 col-sm-3 col-lg-3 left">Left side bar
+-->
+<div>
+<div class="col-12 col-sm-3 col-lg-3 left">  Select disciplines or societies to search below (all are included by default)
 <?php require("sidebar.php"); ?>
 </div>
-</div>
-
 
 
 <div class="col-12 col-sm-9 col-lg-9 mn">
 Enter search term below <br>
 
-<form action="sqlQuery.php" method="post" class="form-horizontal" role="form">
+<!--   <form action="sqlQuery.php" method="post" class="form-horizontal" role="form">    -->
 <div class="row">
   <div class="col-lg-6">
     <div class="input-group">

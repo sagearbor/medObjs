@@ -11,6 +11,16 @@ footer {
 -->
 
 
+<style type="text/css">
+.panel-group {
+    background-image: url("https://pixabay.com/static/uploads/photo/2014/04/02/10/55/health-304919_960_720.png");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+}
+</style>
+
+
+
 footer {
     float: right;
     height: 35px;

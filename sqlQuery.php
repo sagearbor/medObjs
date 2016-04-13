@@ -40,11 +40,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <h1 class="text-center"> Medical School objectives </h1><br>
 <h2 class="text-center"> A searchable database from multiple national societies </h2><br>
-Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03/public_html/sqlQuery.php <br>
+
+<br><br>
+<br> $_POST['cbDiscipline'] below <br>
 
 
-The searchTerm1  is    <?php echo $_POST["searchTerm1"]; ?><br>
-The searchTerm2  is    <?php echo $_POST["searchTerm2"]; ?><br>
+<?php
+  $name = $_POST['cbDiscipline'];
+  // optional
+  echo "You chose the following discipline(s): <br>";
+  foreach ($name as $disciplineDisplayName)
+    {
+    echo $disciplineDisplayName."<br />";
+    }
+?>
+
+<br><br>
+
+
+
+Results searching the words : "<?php echo $_POST["searchTerm1"]; ?>" and "<?php echo $_POST["searchTerm2"]; ?>"
+<br><br>
+<br><br>
 Is the toggle button2 (bt2) checked = <?php echo $_POST["bt2"]; ?><br><br>
 
 <br>

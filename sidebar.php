@@ -1,12 +1,19 @@
 
 
 
+<!-- 
+NEED TO PUT SOCIETIES AND DISCIPLINES CHECKBOXED IN ARRAY TO USE IN SQL
+http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes 
+-->
 
 
 
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"> 
+<br>
+<br>
+<br>
+<br>
 
-
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingFive">
       <h4 class="panel-title">
@@ -28,9 +35,10 @@
           <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
           <div class="col-lg-6">
             <div class="input-group">
+              <!--  <div class="input-group">   -->
               <span class="input-group-addon">
-                <input type="checkbox" checked aria-label="...">
-              </span><span><?php echo $row['displayName']; ?></span>
+                <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="cb_<?php echo $row['displayName']; ?>" checked aria-label="...">
+              </span><label><?php echo $row['displayName']; ?></label>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>
           <?php endforeach;?>
