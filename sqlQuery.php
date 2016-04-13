@@ -54,9 +54,7 @@
     echo $disciplineDisplayName."<br />";
     }
 ?>
-
-<br><br>
-
+<?php  print_r ($name);  ?>
 
 
 Results searching the words : "<?php echo $_POST["searchTerm1"]; ?>" and "<?php echo $_POST["searchTerm2"]; ?>"
