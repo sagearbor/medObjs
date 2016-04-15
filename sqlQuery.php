@@ -46,21 +46,24 @@
 
 
 <?php
-  $name = $_POST['cbDiscipline'];
+  $discName = $_POST['cbDiscipline'];
   // optional
+
+echo "echo implode1 = " . implode(',', $discName) . "<br>";
+
   echo "You chose the following discipline(s): <br>";
-  foreach ($name as $disciplineDisplayName)
+  foreach ($discName as $disciplineDisplayName)
     {
     echo $disciplineDisplayName."<br />";
     }
 ?>
-<?php  print_r ($name);  ?>
+<?php  print_r ($discName);  ?>
 
 
 Results searching the words : "<?php echo $_POST["searchTerm1"]; ?>" and "<?php echo $_POST["searchTerm2"]; ?>"
 <br><br>
 <br><br>
-Is the toggle button2 (bt2) checked = <?php echo $_POST["bt2"]; ?><br><br>
+Is the toggle checkbox Term2 (cbTerm2) checked = <?php echo $_POST["cbTerm2"]; ?><br><br>
 
 <br>
 <br>
@@ -82,32 +85,95 @@ Is the toggle button2 (bt2) checked = <?php echo $_POST["bt2"]; ?><br><br>
     <th>subHd1</th>
     <th>kw1</th>
     <th>Notes</th>
-    <th>o_PK</th>
+    <th>PK_o</th>
     <th>hrs</th>
     <th>Answer</th>
-    <th>author_yearPK</th>
+    <th>disc1</th>
 </tr>
 
 <?php
-echo "<a> Test in php echo. </a><br><br>";
-
+echo "<a> Test in php echo. </a><br>";
 $searchTerm1 = $_POST['searchTerm1'];
-$tb1 = $_POST['tb1'];
-$tb2 = $_POST['tb2'];
+$cbTerm1 = $_POST['tb1'];
+$cbTerm2 = $_POST['tb2'];
+//echo $searchTerm1"<br><br>";
+echo $searchTerm1;
 
 
-$servername = "localhost";
-$dbname = "medSchlObj";
-$username = "roFromWeb";  
-$password = "roPassword1";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
+ $servername = "localhost";
+ $dbname = "medSchlObj";
+ $username = "roFromWeb";  
+ $password = "roPassword1";
+ $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
+
+// $conn = new PDO("uri:file:mysql.dsn") or die ('I cannot connect  to the database because: ' . mysql_error());
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+// http://stackoverflow.com/questions/907806/php-mysql-using-an-array-in-where-clause
 // $sth = $conn->prepare($sqlQueryString);
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives LIMIT 5");
-$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,author_yearPK FROM objectives ");
+ $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives LIMIT 5");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%DNA%' LIMIT 5");
-$sth->execute();
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
+
+echo "echo implode2 = " . implode(',', $discName) . "<br>";
+
+foreach($discName as &$val)
+    $val=$conn->quote($val); //iterate through array and quote
+echo "echo implode3 = " . implode(',', $discName) . "<br>";
+$qStr1 = $discName;
+$qStri2 = implode(',', $discName);
+echo "<br><br>";
+print_r ();
+
+
+$in = implode(',',$ids); //create comma separated list
+echo "in = ";
+echo $in;
+print_r ($in);
+echo "implode with quotes4 = <br>";
+$str = "'" . implode("','", $discname) . "'";  
+print_r ($str);
+echo "<br>Got heree<br>";
+
+echo "echo implode5 = " . implode(',', $discName) . "<br>";
+function add_quotes($str) {
+    return sprintf("'%s'", $str);
+}
+
+$discNameImpld = implode(',', array_map('add_quotes',$discName));
+//$discNameImpld = implode(',', $discName);
+//$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (".$in.") LIMIT 5");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' AND discipline IN ('Cell Biology','Anatomy','Biochemistry') LIMIT 5");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (".$discNameImpld.") LIMIT 5");
+//$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (".implode(',',$discName).") LIMIT 5");
+var_dump($conn -> errorInfo());
+ echo "<br><br> look at IMPLODE <br><br>";
+ echo "dDiscName = " . $discName . "<br>";
+ echo "dDiscName(0) = " . $discName[0] . "<br>";
+ echo "echo implode6 = " . implode(',', $discName) . "<br>";
+ echo "discNameImpld = ". $discNameImpld;
+ echo "<br>";
+ echo "discNameImpld(0) = ". $disciplineDisplayName[0];
+ echo "<br>";
+ //echo "discNameImpld(0) = ". $disciplineDisplayName[0];
+ //echo "<br>";
+ echo "discNameImpld(1) = ". $disciplineDisplayName[1];
+ echo "<br>";
+ echo "discNameImpld(2) = ". $disciplineDisplayName[2];
+ echo "<br>";
+ echo "discNameImpld(3) = ". $disciplineDisplayName[3];
+ echo "<br>";
+ echo "<br>";
+ echo "printr discName = <br>";
+ echo print_r($discName);
+ echo "<br>";
+
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%'  LIMIT 5");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives LIMIT 5");
+// $sth = $pdo->prepare($select);
+// $sth->execute($discName);
+ $sth->execute();
 ?>
 <?php foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
 <tr>
@@ -117,10 +183,10 @@ $sth->execute();
     <td><?php echo $row['subHd1']; ?></td>
     <td><?php echo $row['kw1']; ?></td>
     <td><?php echo $row['oNotes']; ?></td>
-    <td><?php echo $row['o_PK']; ?></td>
+    <td><?php echo $row['PK_o']; ?></td>
     <td><?php echo $row['hrs']; ?></td>
     <td><?php echo $row['oAns']; ?></td>
-    <td><?php echo $row['author_yearPK']; ?></td>
+    <td><?php echo $row['disc1']; ?></td>
 </tr>
 
 <?php endforeach;?>

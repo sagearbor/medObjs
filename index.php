@@ -56,7 +56,7 @@ Enter search term below <br>
     <div class="input-group">
       <span class="input-group-addon">
         <!-- <input type="radio" name="bt2" aria-label="...">    -->
-        <input type="checkbox" name="bt2" aria-label="...">
+        <input type="checkbox" name="cbTerm2" aria-label="...">
       </span>
       <input type="text" name="searchTerm2" class="form-control" aria-label="...">
     </div><!-- /input-group -->

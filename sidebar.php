@@ -46,7 +46,7 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
     <div class="panel-heading" role="tab" id="headingSix">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-          Societies
+          <b>Societies</b>
         </a>
       </h4>
     </div>
