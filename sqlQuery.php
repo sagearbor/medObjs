@@ -86,23 +86,19 @@ foreach($discName as &$val)
 foreach($socName as &$val)
   $val=$conn->quote($val); //iterate through array and quote
 // $sth = $conn->prepare("SELECT * FROM Societies;");
-//$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
-
- $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND disc1 IN (".implode(',',$discName).") ");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (SELECT abbrev from societies)ame));
+ $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND disc1 IN (".implode(',',$discName).") ");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND disc1 IN (".implode(',',$discName).") ");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1,disc2,disc3 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).") ");
 
-$discNameImpld = implode(',', array_map('add_quotes',$discName));
-//$discNameImpld = implode(',', $discName);
-//$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (".$in.") LIMIT 5");
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' AND discipline IN ('Cell Biology','Anatomy','Biochemistry') LIMIT 5");
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (".$discNameImpld.") LIMIT 5");
-//$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (".implode(',',$discName).") LIMIT 5");
- echo "<br>";
+  $discName = $_POST['cbDiscipline'];
+  $socName = $_POST['cbSociety'];
+  $searchTerm1 = $_POST['searchTerm1'];
+  $searchTerm2 = $_POST['searchTerm2'];
+  $cbTerm2 = $_POST['cbTerm2'];
 
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%'  LIMIT 5");
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives LIMIT 5");
-// $sth = $pdo->prepare($select);
-// $sth->execute($discName);
+
  $sth->execute();
 ?>
 <?php foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
