@@ -60,14 +60,14 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
             $servername = "localhost"; $dbname = "medSchlObj"; $username = "roFromWeb"; $password = "roPassword1";
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $disciplines = $conn->prepare("SELECT name FROM societies ");
-            $disciplines->execute();
+            $societies = $conn->prepare("SELECT name FROM societies ");
+            $societies->execute();
           ?>
-          <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
+          <?php foreach($societies->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
           <div class="col-lg-6">
             <div class="input-group">
               <span class="input-group-addon">
-                <input type="checkbox" checked aria-label="...">
+                <input type="checkbox" name="cbSociety[]" id="societyId" value="<?php echo $row['name']; ?>"  checked aria-label="...">
               </span><span><?php echo $row['name']; ?></span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>
