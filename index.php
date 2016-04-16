@@ -34,11 +34,14 @@ Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03
 <div class="row">
 -->
 <div>
-<div class="col-12 col-sm-3 col-lg-3 left">  Select disciplines or societies to search below (all are included by default)
+<!--  <div class="col-12 col-sm-3 col-lg-3 left">  Select disciplines or societies to search below (all are included by default)  -->
+<div class="col-12 col-sm-3 col-lg-3 left"> Select disciplines or societies to search below (all are included by default)
 <br>
-<div class="sbBG">
+<div class="sbBG-X">
 <?php require("sidebar.php"); ?>
 </div>
+<div style="background-image: url(https://pixabay.com/static/uploads/photo/2014/04/02/10/55/health-304919_960_720.png); background-repeat: no-repeat; background-size: contain; opacity: 0.8; background-position: bottom; z-index: 33;   " >
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
 </div>
 
 

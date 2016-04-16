@@ -58,6 +58,14 @@
     <div class="sbBG">
       <?php require("sidebar.php"); ?>
     </div>
+    <?php 
+      echo "<br><u> Your Search Criteria is below </u><br>";
+      echo "<b>Disciplines</b>: ".implode(',', $discName)."<br> or <br>";
+      echo "<b>Societies</b>: ".implode(',', $socName)." <br>";
+      echo "<b>Search term1</b>: ".$srchTerm1." <br>";
+      echo "<b>Search term2</b>: ".$srchTerm2." <br>";
+      echo "Term2 checkbox = ".$cbTerm2."<br><br>";
+    ?>
   </div>
   <div class="col-12 col-sm-9 col-lg-9 main">
     <table class="table table-bordered">
@@ -129,12 +137,6 @@ foreach($socName as &$val)
 -->
 
 <?php   
-  echo "<br><u> Your Search Criteria is below </u><br>";
-  echo "<b>Disciplines</b>: ".implode(',', $discName)."<br> or <br>";
-  echo "<b>Societies</b>: ".implode(',', $socName)." <br>";
-  echo "<b>Search term1</b>: ".$srchTerm1." <br>";
-  echo "<b>Search term2</b>: ".$srchTerm2." <br>";
-  echo "Term2 checkbox = ".$cbTerm2."<br><br>";
   echo "
     <script type=\"text/javascript\">
     $('body').text().highlight('$searchTerm') 

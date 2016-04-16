@@ -119,47 +119,6 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
 
   </div>
 <br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
 </div>
 
-
-
-
-
-<!-- 
-
-
-
-<?php
-$servername = "localhost";
-$dbname = "medSchlObj";
-$username = "roFromWeb";
-$password = "roPassword1";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-// $disciplines = $conn->prepare("SELECT discipline FROM disciplines WHERE inDB = 1");
-$disciplines = $conn->prepare("SELECT displayName FROM disciplines WHERE inDB = 1");
-$disciplines->execute();
-?>
-<?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
-<tr>
-    <td><?php echo $row['idisplayName']; ?></td>
-    <td><?php echo $row['year']; ?></td>
-    <td><?php echo $row['obj']; ?></td>
-    <td><?php echo $row['subHd1']; ?></td>
-    <td><?php echo $row['kw1']; ?></td>
-    <td><?php echo $row['oNotes']; ?></td>
-    <td><?php echo $row['o_PK']; ?></td>
-    <td><?php echo $row['hrs']; ?></td>
-    <td><?php echo $row['oAns']; ?></td>
-    <td><?php echo $row['author_yearPK']; ?></td>
-</tr>
-
-<?php endforeach;?>
-
---> 
 
