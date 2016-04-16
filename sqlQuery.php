@@ -112,7 +112,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // http://stackoverflow.com/questions/907806/php-mysql-using-an-array-in-where-clause
 // $sth = $conn->prepare($sqlQueryString);
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,author_yearPK FROM objectives ");
- $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives LIMIT 5");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives LIMIT 5");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,o_PK,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%DNA%' LIMIT 5");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,author_yearPK FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
 
@@ -120,6 +120,14 @@ echo "echo implode2 = " . implode(',', $discName) . "<br>";
 
 foreach($discName as &$val)
     $val=$conn->quote($val); //iterate through array and quote
+
+
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives LIMIT 5");
+//$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
+ $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND disc1 IN (".implode(',',$discName).") ");
+//echo "<br>sth = ";
+//echo $sth;
+
 echo "echo implode3 = " . implode(',', $discName) . "<br>";
 $qStr1 = $discName;
 $qStri2 = implode(',', $discName);
