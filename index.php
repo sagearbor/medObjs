@@ -18,6 +18,15 @@
 <h1 class="text-center"> Medical School objective DB  </h1><br>
 <h2 class="text-center"> A searchable database from multiple national societies </h2><br>
 <link type="text/css" rel="stylesheet" href="site.css" </link>
+<script>
+$(document).ready(function() {
+    $("#selectAllDisciplines").click(function() {
+        var checkBoxes = $("input[name=disciplineId\\[\\]]");
+        checkBoxes.prop("checked", !checkBoxes.prop("checked"));
+    });                 
+});
+</script>
+
 </head>
 
 <body>

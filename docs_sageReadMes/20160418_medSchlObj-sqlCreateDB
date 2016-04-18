@@ -1,0 +1,4 @@
+### This will recreate the database as the initial stub.
+##    The following command was used :  mysqldump medSchlObj;
+
+

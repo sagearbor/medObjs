@@ -29,6 +29,15 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
             $disciplines = $conn->prepare("SELECT discipline FROM disciplines WHERE inDB = 1");
             $disciplines->execute();
           ?>
+
+          <div class="col-lg-6">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="...">
+              </span><label>Toggle Disciplines</label> 
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 --><br>
+
           <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
           <div class="col-lg-6">
             <div class="input-group">
@@ -37,7 +46,7 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
                 <!-- <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['displayName']; ?>" checked aria-label="...">  -->
                 <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['discipline']; ?>" checked aria-label="...">
 	      <!--  </span><label><?php echo $row['displayName']; ?></label>   -->
-                </span><label><?php echo $row['discipline']; ?></label> 
+              </span><label><?php echo $row['discipline']; ?></label> 
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>
           <?php endforeach;?>

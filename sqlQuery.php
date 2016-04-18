@@ -60,7 +60,7 @@
     </div>
     <?php 
       echo "<br><u> Your Search Criteria is below </u><br>";
-      echo "<b>Disciplines</b>: ".implode(',', $discName)."<br> or <br>";
+      echo "<b>Disciplines</b>: ".implode(',', $discName)."<br> AND <br>";
       echo "<b>Societies</b>: ".implode(',', $socName)." <br>";
       echo "<b>Search term1</b>: ".$srchTerm1." <br>";
       echo "<b>Search term2</b>: ".$srchTerm2." <br>";
@@ -96,7 +96,7 @@ foreach($socName as &$val)
 // $sth = $conn->prepare("SELECT * FROM Societies;");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (SELECT abbrev from societies)ame));
- $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND disc1 IN (".implode(',',$discName).") ");
+ $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND disc1 IN (".implode(',',$discName).") ");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1,disc2,disc3 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).") ");
 
