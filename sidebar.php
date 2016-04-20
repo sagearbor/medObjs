@@ -6,6 +6,21 @@ NEED TO PUT SOCIETIES AND DISCIPLINES CHECKBOXED IN ARRAY TO USE IN SQL
 http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes 
 -->
 
+<!-- 
+Javascript based on
+http://jsfiddle.net/H37cb/
+http://stackoverflow.com/questions/19282219/check-uncheck-all-the-checkboxes-in-a-table
+-->
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('input[name="selectAllDisciplines"],input[name="selectAllSocieties"]').bind('click', function(){
+var status = $(this).is(':checked');
+$('input[type="checkbox"]', $(this).parent('li')).attr('checked', status);
+});
+
+});
+</script>
 
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"> 
@@ -32,25 +47,21 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
 
           <div class="col-lg-6">
             <div class="input-group">
-              <span class="input-group-addon">
+              <li class="input-group-addon">
                 <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="...">
-              </span><label>Toggle Disciplines</label> 
+                <label>All</label>
+                <ul>
+                  <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
+                    <!-- <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['displayName']; ?>" checked aria-label="...">  -->
+                    <li><input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['discipline']; ?>" checked aria-label="...">
+                      <!--  </span><label><?php echo $row['displayName']; ?></label>   -->
+                      <label><?php echo $row['discipline']; ?></label>
+                    </li>
+                  <?php endforeach;?>
+                <ul>
+              </li>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>
-
-          <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
-          <div class="col-lg-6">
-            <div class="input-group">
-              <!--  <div class="input-group">   -->
-              <span class="input-group-addon">
-                <!-- <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['displayName']; ?>" checked aria-label="...">  -->
-                <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['discipline']; ?>" checked aria-label="...">
-	      <!--  </span><label><?php echo $row['displayName']; ?></label>   -->
-              </span><label><?php echo $row['discipline']; ?></label> 
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 --><br>
-          <?php endforeach;?>
-
         </div><!-- /.row -->
       </div>
     </div>
@@ -72,6 +83,15 @@ http://stackoverflow.com/questions/4997252/get-post-from-multiple-checkboxes
             $societies = $conn->prepare("SELECT name FROM societies ");
             $societies->execute();
           ?>
+
+          <div class="col-lg-6">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <input type="checkbox" name="selectAllSocieties" id="selectAllSocieties" value="selectAllSocieties" unchecked aria-label="...">
+              </span><label>All</label>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 --><br>
+
           <?php foreach($societies->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
           <div class="col-lg-6">
             <div class="input-group">
