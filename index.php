@@ -40,21 +40,23 @@ Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03
 
 <form action="sqlQuery.php" method="post" class="form-horizontal" role="form">
 <!-- 
-<div class="row">
--->
 <div>
-<!--  <div class="col-12 col-sm-3 col-lg-3 left">  Select disciplines or societies to search below (all are included by default)  -->
-<div class="col-12 col-sm-3 col-lg-3 left"> Select disciplines or societies to search below (all are included by default)
-<br>
-<div class="sbBG-X">
-<?php require("sidebar.php"); ?>
-</div>
-<div style="background-image: url(https://pixabay.com/static/uploads/photo/2014/04/02/10/55/health-304919_960_720.png); background-repeat: no-repeat; background-size: contain; opacity: 0.8; background-position: bottom; z-index: 33;   " >
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
-</div>
+-->
+<div class="row">
+  <!--  <div class="col-12 col-sm-3 col-lg-3 left">  Select disciplines or societies to search below (all are included by default)  -->
+  <!--  <div class="col-12 col-sm-3 col-lg-3 left"> Select disciplines or societies to search below <br> (all are included by default)<br>  -->
+  <div class="col-xs-3 col-sm-4 col-lg-4 left"> Select disciplines or societies to search below <br> (all are included by default)<br>
+    <div class="sbBG-X">
+      <?php require("sidebar.php"); ?>
+    </div>
+    <div style="background-image: url(https://pixabay.com/static/uploads/photo/2014/04/02/10/55/health-304919_960_720.png); background-repeat: no-repeat; background-size: contain; opacity: 0.8; background-position: bottom; z-index: 33;   " >
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+  </div>
 
 
-<div class="col-12 col-sm-9 col-lg-9 mn">
+<!-- <div class="col-12 col-sm-9 col-lg-9 mn"> -->
+<div class="col-xs-9 col-sm-8 col-lg-8">
 Enter search term below <br>
 
 <!--   <form action="sqlQuery.php" method="post" class="form-horizontal" role="form">    -->
@@ -64,42 +66,29 @@ Enter search term below <br>
       <input type="text" name="searchTerm1" class="form-control" aria-labelledby="...WHAT">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
+<!--
   <div class="col-lg-6">
     <div class="input-group">
       <span class="input-group-addon">
-        <!-- <input type="radio" name="bt2" aria-label="...">    -->
+        <!~~ <input type="radio" name="bt2" aria-label="...">    ~~>
         <input type="checkbox" name="cbTerm2" aria-label="...">
       </span>
       <input type="text" name="searchTerm2" class="form-control" aria-label="...">
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+    </div><!~~ /input-group ~~>
+  </div><!~~ /.col-lg-6 ~~>
+-->
 </div><!-- /.row -->
 <input type="submit">
 </form>
 
-<br>
-
-
-<br>
-<br>
-<br>
-
-
-<br>
-
-
-  
+<br><br><br><br><br>
 </form>
   </div></div></div>
 
-<br>5th line
-<br>
-<br>
-<br>
-
-<br>
-<br>
+<!--
+<br>5th line<br><br>
 <br>6th line
+-->
 
 </div>
 </div>

@@ -105,11 +105,31 @@ foreach($socName as &$val)
   $searchTerm1 = $_POST['searchTerm1'];
   $searchTerm2 = $_POST['searchTerm2'];
   $cbTerm2 = $_POST['cbTerm2'];
-
-
  $sth->execute();
+
+$count = $sth->rowCount();
+print("$count objectives found.<br><br>");
+
+// $sth->store_result();
+// echo "<br>Testing store_resultsssssi=<br>";
+// echo $sth->num_rows;
+
+
+// Maybe use multiple queries in future using store_result -->  http://php.net/manual/en/mysqli.multi-query.php
+
+// $data = array(); // create a variable to hold the information
+// while (($row = mysql_fetch_array($result, MYSQL_ASSOC)) !== false){
+//   $data[] = $row; // add the row in to the results (data) array
+// }
+// print_r($data);
 ?>
-<?php foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
+
+
+
+<?php foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $row) : 
+// $data = array(); // create a variable to hold the information
+// $data[] = $row; // add the row in to the results (data) array
+?>
 <tr>
     <td><?php echo $row['author']; ?></td>
     <td><?php echo $row['year']; ?></td>
@@ -122,10 +142,9 @@ foreach($socName as &$val)
     <td><?php echo $row['oAns']; ?></td>
     <td><?php echo $row['disc1']; ?></td>
 </tr>
-
 <?php endforeach;?>
-
 </table>
+<!-- <?php echo "<br>DATA in an array:<br> print_r($data) <br> "; ?>  -->
 
 <!--
 ### HIGHLIGHT SEARCH TERM

@@ -12,15 +12,23 @@ http://jsfiddle.net/H37cb/
 http://stackoverflow.com/questions/19282219/check-uncheck-all-the-checkboxes-in-a-table
 -->
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(
 
-$('input[name="selectAllDisciplines"],input[name="selectAllSocieties"]').bind('click', function(){
-var status = $(this).is(':checked');
-$('input[type="checkbox"]', $(this).parent('li')).attr('checked', status);
-});
-
-});
+function()
+  {
+    $('input[name="selectAllDisciplines"],input[name="selectAllSocieties"]').bind('click', function()
+      {
+        var status = $(this).is(':checked');
+        window.alert("Status of checbox set to = " + status);
+        console.log("Status of checbox set to = " + status);
+        <!-- $('input[type=checkbox]', $(this).parent('li')).attr('checked', status); -->
+      });
+  }
+);
 </script>
+
+
+
 
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"> 
@@ -48,12 +56,14 @@ $('input[type="checkbox"]', $(this).parent('li')).attr('checked', status);
           <div class="col-lg-6">
             <div class="input-group">
               <li class="input-group-addon">
-                <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="...">
+                <!--  <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="...">  -->
+                <!-- <input type="checkbox" onchange="checkAll2(this)" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="..." />  -->
+                <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="..." />
                 <label>All</label>
                 <ul>
                   <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
                     <!-- <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['displayName']; ?>" checked aria-label="...">  -->
-                    <li><input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['discipline']; ?>" checked aria-label="...">
+                    <li><input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['discipline']; ?>" checked aria-label="..." />
                       <!--  </span><label><?php echo $row['displayName']; ?></label>   -->
                       <label><?php echo $row['discipline']; ?></label>
                     </li>
@@ -106,7 +116,7 @@ $('input[type="checkbox"]', $(this).parent('li')).attr('checked', status);
       </div>
     </div>
 
-
+<!--
     <div class="panel-heading" role="tab" id="headingFour">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -122,26 +132,26 @@ $('input[type="checkbox"]', $(this).parent('li')).attr('checked', status);
               <span class="input-group-addon">
                 <input type="checkbox" checked aria-label="...">
               </span><span> 2015</span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 --><br>
+            </div><!~~ /input-group ~~>
+          </div><!~~ /.col-lg-6 ~~><br>
           <div class="col-lg-6">
             <div class="input-group">
               <span class="input-group-addon">
                 <input type="checkbox" unchecked aria-label="...">
               </span><span> 2014</span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 --><br>
+            </div><!~~ /input-group ~~>
+          </div><!~~ /.col-lg-6 ~~><br>
           <div class="col-lg-6">
             <div class="input-group">
               <span class="input-group-addon">
                 <input type="checkbox" unchecked aria-label="...">
               </span><span> 2013</span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
+            </div><!~~ /input-group ~~>
+          </div><!~~ /.col-lg-6 ~~>
+        </div><!~~ /.row ~~>
       </div>
     </div>
-
+-->
 
 
 
