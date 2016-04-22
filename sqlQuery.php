@@ -69,17 +69,28 @@
   </div>
   <div class="col-12 col-sm-9 col-lg-9 main">
     <table class="table table-bordered">
+      <colgroup>
+        <!--  <col class="obj_size" style="width:2%">  -->
+        <col style="width:10%">
+        <col style="width:50%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+      </colgroup>  
       <tr>
-        <th>author</th>
+<!--        <th>author</th>  -->
         <th>year</th>
-        <th>objectives</th>
+        <th width:"50%">objectives</th>
         <th>subHd1</th>
         <th>kw1</th>
         <th>Notes</th>
+<!--
         <th>PK_o</th>
         <th>hrs</th>
         <th>Answer</th>
-        <th>disc1</th>
+-->
+        <th width:"10px">disc1</th>
       </tr>
 
 <?php
@@ -96,9 +107,10 @@ foreach($socName as &$val)
 // $sth = $conn->prepare("SELECT * FROM Societies;");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (SELECT abbrev from societies)ame));
- $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND disc1 IN (".implode(',',$discName).") ");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1,disc2,disc3 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).") ");
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
+ $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
 
   $discName = $_POST['cbDiscipline'];
   $socName = $_POST['cbSociety'];
@@ -131,15 +143,17 @@ print("$count objectives found.<br><br>");
 // $data[] = $row; // add the row in to the results (data) array
 ?>
 <tr>
-    <td><?php echo $row['author']; ?></td>
-    <td><?php echo $row['year']; ?></td>
-    <td><?php echo $row['obj']; ?></td>
+<!--    <td><?php echo $row['author']; ?></td>  -->
+    <td class="zero_width"><?php echo $row['author']." ".$row['year']; ?></td>
+    <td class="obj_size"><?php echo $row['obj']; ?></td>
     <td><?php echo $row['subHd1']; ?></td>
     <td><?php echo $row['kw1']; ?></td>
     <td><?php echo $row['oNotes']; ?></td>
+<!--
     <td><?php echo $row['PK_o']; ?></td>
     <td><?php echo $row['hrs']; ?></td>
     <td><?php echo $row['oAns']; ?></td>
+-->
     <td><?php echo $row['disc1']; ?></td>
 </tr>
 <?php endforeach;?>

@@ -11,6 +11,9 @@ Javascript based on
 http://jsfiddle.net/H37cb/
 http://stackoverflow.com/questions/19282219/check-uncheck-all-the-checkboxes-in-a-table
 -->
+
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>   -->
+
 <script type="text/javascript">
 $(document).ready(
 
@@ -24,15 +27,14 @@ function()
         <!-- $('input[type=checkbox]', $(this).parent('li')).attr('checked', status); -->
       });
   }
+
 );
 </script>
 
 
 
 
-
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"> 
-<br>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingFive">
       <h4 class="panel-title">
@@ -58,17 +60,17 @@ function()
               <li class="input-group-addon">
                 <!--  <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="...">  -->
                 <!-- <input type="checkbox" onchange="checkAll2(this)" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="..." />  -->
-                <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="..." />
-                <label>All</label>
-                <ul>
+                <!--  <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="..." /> <label>All</label>  -->
+                <input type="checkbox" onClick="toggle(this)" /> Toggle All<br/>
+                <div>
                   <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
                     <!-- <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['displayName']; ?>" checked aria-label="...">  -->
-                    <li><input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['discipline']; ?>" checked aria-label="..." />
+                    <div><input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['discipline']; ?>" checked aria-label="..." />
                       <!--  </span><label><?php echo $row['displayName']; ?></label>   -->
                       <label><?php echo $row['discipline']; ?></label>
-                    </li>
+                    </div>
                   <?php endforeach;?>
-                <ul>
+                <div>
               </li>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>

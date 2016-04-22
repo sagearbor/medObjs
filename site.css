@@ -16,6 +16,9 @@ z-index: -1;
     font-weight: bold;
 }
 
+td.zero_width {
+    width: 1%;
+}
 
 .sbBG {
     background-image: url("https://pixabay.com/static/uploads/photo/2014/04/02/10/55/health-304919_960_720.png");

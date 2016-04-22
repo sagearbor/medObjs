@@ -7,6 +7,7 @@
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  -->
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -18,14 +19,40 @@
 <h1 class="text-center"> Medical School objective DB  </h1><br>
 <h2 class="text-center"> A searchable database from multiple national societies </h2><br>
 <link type="text/css" rel="stylesheet" href="site.css" </link>
-<script>
-$(document).ready(function() {
-    $("#selectAllDisciplines").click(function() {
-        var checkBoxes = $("input[name=disciplineId\\[\\]]");
-        checkBoxes.prop("checked", !checkBoxes.prop("checked"));
-    });                 
+
+<script language="JavaScript">
+var checkAll = document.getElementById("id_check_uncheck_all");
+checkAll.addEventListener("change", function() {
+  var checked = this.checked;
+  var otherCheckboxes = document.querySelectorAll(".toggleable");
+  [].forEach.call(otherCheckboxes, function(item) {
+    item.checked = checked;
+  });
 });
 </script>
+
+
+
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('foo');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+
+
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('cbDiscipline[]');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+
+
 
 </head>
 
@@ -90,8 +117,16 @@ Enter search term below <br>
 <br>6th line
 -->
 
-</div>
-</div>
+
+<br/><br/><br/>
+<input type="checkbox" onClick="toggle(this)" /> Toggle All<br/>
+
+<input type="checkbox" name="foo" value="bar1"> Bar 1<br/>
+<input type="checkbox" name="foo" value="bar2"> Bar 2<br/>
+<input type="checkbox" name="foo" value="bar3"> Bar 3<br/>
+<input type="checkbox" name="foo" value="bar4"> Bar 4<br/>
+
+
 
 </body>
 
@@ -100,7 +135,7 @@ Enter search term below <br>
  <div class="wrap">
    <a href="./contact.html">Contact   |</a>
    <a href="./about.html">   About   |</a>
-   <a href="./help">   Help</a>
+   <a href="./help.html">   Help</a>
  </div>
 </div>
 
