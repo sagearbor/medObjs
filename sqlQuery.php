@@ -82,15 +82,15 @@
 <!--        <th>author</th>  -->
         <th>year</th>
         <th width:"50%">objectives</th>
-        <th>subHd1</th>
-        <th>kw1</th>
+        <th>subHeading1</th>
+        <th>keyword</th>
         <th>Notes</th>
 <!--
         <th>PK_o</th>
         <th>hrs</th>
         <th>Answer</th>
 -->
-        <th width:"10px">disc1</th>
+        <th width:"10px">discipline1</th>
       </tr>
 
 <?php

@@ -31,6 +31,24 @@ function()
 );
 </script>
 
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('cbDiscipline[]');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+
+<script language="JavaScript">
+function toggle2(source) {
+  checkboxes = document.getElementsByName('cbSociety[]');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+
 
 
 
@@ -61,7 +79,7 @@ function()
                 <!--  <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="...">  -->
                 <!-- <input type="checkbox" onchange="checkAll2(this)" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="..." />  -->
                 <!--  <input type="checkbox" name="selectAllDisciplines" id="selectAllDisciplines" value="selectAllDisciplines" unchecked aria-label="..." /> <label>All</label>  -->
-                <input type="checkbox" onClick="toggle(this)" /> Toggle All<br/>
+                <input type="checkbox" onClick="toggle(this)" /> Toggle Disciplines<br/>
                 <div>
                   <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
                     <!-- <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['displayName']; ?>" checked aria-label="...">  -->
@@ -99,8 +117,9 @@ function()
           <div class="col-lg-6">
             <div class="input-group">
               <span class="input-group-addon">
-                <input type="checkbox" name="selectAllSocieties" id="selectAllSocieties" value="selectAllSocieties" unchecked aria-label="...">
-              </span><label>All</label>
+                <input type="checkbox" onClick="toggle2(this)" /> Toggle Societies<br/>
+                <!--  <input type="checkbox"  name="selectAllSocieties" id="selectAllSocieties" value="selectAllSocieties" unchecked aria-label="...">  -->
+              </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>
 
