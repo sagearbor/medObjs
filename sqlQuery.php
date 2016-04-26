@@ -55,9 +55,11 @@
   $colsToShow = $_POST['columnsSelected'];
 ?>
 
+<!-- 
 <?php echo "<br>discName = ".print_r($discName)."<br>colsToShow = ".print_r($colsToShow) ; ?>
 <?php echo "<br>colsToShow implode = ".implode(', ',$colsToShow) ; ?>
 <?php echo "<br>count colsToShow  = ".count($colsToShow) ; ?>
+--> 
 
 <br><br>
 
@@ -74,38 +76,14 @@
     </div>
     <?php 
       echo "<br><u> Your Search Criteria is below </u><br>";
+      echo "<b>Search term1</b>: ".$searchTerm1." <br>";
       echo "<b>Disciplines</b>: ".implode(', ', $discName)."<br> AND <br>";
       echo "<b>Societies</b>: ".implode(', ', $socName)." <br>";
-      echo "<b>Search term1</b>: ".$srchTerm1." <br>";
-      echo "<b>Search term2</b>: ".$srchTerm2." <br>";
-      echo "Term2 checkbox = ".$cbTerm2."<br><br>";
+      //echo "<b>Search term2</b>: ".$srchTerm2." <br>";
+      //echo "Term2 checkbox = ".$cbTerm2."<br><br>";
     ?>
   </div>
   <div class="col-12 col-sm-9 col-lg-9 main">
-    <table class="table table-bordered">
-      <colgroup>
-        <!--  <col class="obj_size" style="width:2%">  -->
-        <col style="width:10%">
-        <col style="width:50%">
-        <col style="width:10%">
-        <col style="width:10%">
-        <col style="width:10%">
-        <col style="width:10%">
-      </colgroup>  
-      <tr>
-<!--        <th>author</th>  -->
-        <th>year</th>
-        <th width:"50%">objectives</th>
-        <th>subHeading1</th>
-        <th>keyword</th>
-        <th>Notes</th>
-<!--
-        <th>PK_o</th>
-        <th>hrs</th>
-        <th>Answer</th>
--->
-        <th width:"10px">discipline1</th>
-      </tr>
 
 <?php
 $servername = "localhost";
@@ -127,59 +105,10 @@ foreach($socName as &$val)
  $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
 
 
-//  $discName = $_POST['cbDiscipline'];
-//  $socName = $_POST['cbSociety'];
-//  $searchTerm1 = $_POST['searchTerm1'];
-//  $searchTerm2 = $_POST['searchTerm2'];
-//  $cbTerm2 = $_POST['cbTerm2'];
- $sth->execute();
-
+$sth->execute();
 $count = $sth->rowCount();
 print("$count objectives found.<br><br>");
-
- $sth->execute();
-
-$count = $sth->rowCount();
-print("$count objectives found2.<br><br>");
-
-
-// $sth->store_result();
-// echo "<br>Testing store_resultsssssi=<br>";
-// echo $sth->num_rows;
-
-
-// Maybe use multiple queries in future using store_result -->  http://php.net/manual/en/mysqli.multi-query.php
-
-// $data = array(); // create a variable to hold the information
-// while (($row = mysql_fetch_array($result, MYSQL_ASSOC)) !== false){
-//   $data[] = $row; // add the row in to the results (data) array
-// }
-// print_r($data);
 ?>
-
-
-
-<?php foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $row) : 
-// $data = array(); // create a variable to hold the information
-// $data[] = $row; // add the row in to the results (data) array
-?>
-<tr>
-<!--    <td><?php echo $row['author']; ?></td>  -->
-    <td class="zero_width"><?php echo $row['author']." ".$row['year']; ?></td>
-    <td class="obj_size"><?php echo $row['obj']; ?></td>
-    <td><?php echo $row['subHd1']; ?></td>
-    <td><?php echo $row['kw1']; ?></td>
-    <td><?php echo $row['oNotes']; ?></td>
-<!--
-    <td><?php echo $row['PK_o']; ?></td>
-    <td><?php echo $row['hrs']; ?></td>
-    <td><?php echo $row['oAns']; ?></td>
--->
-    <td><?php echo $row['disc1']; ?></td>
-</tr>
-<?php endforeach;?>
-</table>
-<!-- <?php echo "<br>DATA in an array:<br> print_r($data) <br> "; ?>  -->
 
 <?php
 $servername = "localhost";
@@ -188,34 +117,16 @@ $username = "roFromWeb";
 $password = "roPassword1";
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-echo "did we get here2?";
-//foreach($discName as &$val)
-//  $val=$conn->quote($val); //iterate through array and quote
-//foreach($socName as &$val)
-//  $val=$conn->quote($val); //iterate through array and quote
- //  $discName = $_POST['cbDiscipline'];
- //  $socName = $_POST['cbSociety'];
- //  $searchTerm1 = $_POST['searchTerm1'];
- //  $searchTerm2 = $_POST['searchTerm2'];
- //  $cbTerm2 = $_POST['cbTerm2'];
 
 $columnsDyn = $colsToShow; // Build this from posted data
-//$colsDyn = "\"".implode('", "',$columnsDyn)."\""; // item1,item2,item4
 $colsDyn = implode(',',$columnsDyn); // item1,item2,item4
 $sqlDyn = "SELECT ".$colsDyn." FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ";
-// echo "sqlDyn with quotes = ".$sqlDyn;
-//$sth = $conn->prepare($sqlDyn);
-
- $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
- $sth->execute();
+$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
+$sth->execute();
 $count = $sth->rowCount();
-print("$count objectives4 found.<br><br>");
 
 // Not using following - http://www.toppa.com/2008/generating-html-tables-with-a-variable-number-of-columns-and-rows/
 // foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $row) :
-echo "did we get here2?";
-//echo "<br><br>sqlDyn = ".$sqlDyn;
-echo "did we get here3?";
 
 
 
@@ -224,72 +135,25 @@ $sth = $conn->prepare($sqlDyn);
  $sth->execute();
 
 $output = "<table class=\"table table-bordered\">\n  <tr>\n";
- 
-//$output = "<table>\n  <tr>\n";
 for ($i = 0; $i < count($columnsDyn); $i++) {
       $output .= "    <th>" . $columnsDyn[$i] . "</th>\n";
-      echo "<br> i , columnsDyn[i] = " . $i . " , " . $columnsDyn[$i];
+      //echo "<br> i , columnsDyn[i] = " . $i . " , " . $columnsDyn[$i];
   }
 $output .= "</tr>\n";
-
-  echo "<br>columnsDyn[0] = ".$columnsDyn[0]."<br>" ;
-  echo "<br>columnsDyn[1] = ".$columnsDyn[1]."<br>" ;
-  echo "<br>columnsDyn[2] = ".$columnsDyn[2]."<br>" ;
-  echo "<br>columnsDyn = ".$columnsDyn."<br>" ;
-  echo "<br>print_r columnsDyn = ".print_r($columnsDyn)."<br>" ;
-  echo "<br>count(columnsDyn) = ".count($columnsDyn)."<br>" ;
-
-$cell_count = 1;
-$data = array();
-echo "<br><br>sqlDyn6 = ".$sqlDyn;
-echo "did we get here3?<br>";
 ?>
 
 <?php foreach($sth->fetchAll(PDO::FETCH_BOTH) as $row) : ?>
 <?php  
-  // {$data[] = $row();
-
-  echo "<br>row[0] = ".$row[0]."<br>" ; 
-  echo "<br>row[1] = ".$row[1]."<br>" ; 
-  echo "<br>row[2] = ".$row[2]."<br>" ; 
-
-for ($i = 0; $i < count($row); $i++) {
+// Sagenote - Need to divide count of row by 2 because returning both 
+//   key and index, based on using "FETCH_BOTH" above.
+for ($i = 0; $i < count($row)/2; $i++) {
       $output .= "    <th>" . $row[$i] . "</th>\n";
   }
 $output .= "</tr>\n";
-
-
-//  echo "<br>DATA in an count(row) = ".count($row) ; 
-//  echo "<br>DATA in an count(row,1) = ".count($row,1) ; 
-//  echo "<br>DATA in an var_dump(row) = ".var_dump($row) ; 
-//  echo "<br>DATA in an row = ".print_r($row) ; 
-//  foreach($row as $x => $x_value) {
-//    echo "Key=" . $row . ", Value=" . $row_value;
-//    echo "<br>";
-  
-//
-//  for ($i = 0; $i < count($row); $i++) {
-//    if ($cell_count == 1) {
-//        $output .= "<tr>\n";
-//    }
-//    $output .= "<td>$row[i][cell_count]</td>\n";
-//    $cell_count++;
-//
-//    // end the row if we've generated the expected number of columns
-//    // or if we're at the end of the array
-//    if ($cell_count > $colsDyn || $i == (count($data) - 1)) {
-//        $output .= "</tr>\n";
-//        $cell_count = 1;
-//    }} 
-// 
-
-//}
 ?>
 
 <?php endforeach;?>
 <?php 
-$output .= "</table>\n";
-echo "About to echo table below: <br>";
 echo $output;
 ?>
 
