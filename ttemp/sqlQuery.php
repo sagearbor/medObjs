@@ -27,11 +27,10 @@
      else{ 
        echo  "<p>Please enter a search query</p>"; 
        } 
- // echo "st1 = "$st1"<br>";
- // echo "st2 = "$st2"<br>";
+// echo "st1 = "$st1"<br>";
+// echo "st2 = "$st2"<br>";
   }
 ?>   
-
  
 </head>
 
@@ -56,11 +55,17 @@
 ?>
 
 <?php echo "<br>discName = ".print_r($discName)."<br>colsToShow = ".print_r($colsToShow) ; ?>
-<?php echo "<br>colsToShow implode = ".implode(', ',$colsToShow) ; ?>
+<?php echo "<br>colsToShow implode = ". implodde(',',$colsToShow) ; ?>
 <?php echo "<br>count colsToShow  = ".count($colsToShow) ; ?>
 
 <br><br>
-
+<?php
+$columnsDyn = $colsToShow; // Build this from posted data
+$colsDyn = implode(',',$columnsDyn); // item1,item2,item4
+$sqlDyn = "SELECT $cols FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ";
+echo $sqlDyn;
+//$sth = $conn->prepare($sqlDyn);
+?>   
 
 
 <br><br>
@@ -126,22 +131,15 @@ foreach($socName as &$val)
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
  $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
 
-
-//  $discName = $_POST['cbDiscipline'];
-//  $socName = $_POST['cbSociety'];
-//  $searchTerm1 = $_POST['searchTerm1'];
-//  $searchTerm2 = $_POST['searchTerm2'];
-//  $cbTerm2 = $_POST['cbTerm2'];
+  $discName = $_POST['cbDiscipline'];
+  $socName = $_POST['cbSociety'];
+  $searchTerm1 = $_POST['searchTerm1'];
+  $searchTerm2 = $_POST['searchTerm2'];
+  $cbTerm2 = $_POST['cbTerm2'];
  $sth->execute();
 
 $count = $sth->rowCount();
 print("$count objectives found.<br><br>");
-
- $sth->execute();
-
-$count = $sth->rowCount();
-print("$count objectives found2.<br><br>");
-
 
 // $sth->store_result();
 // echo "<br>Testing store_resultsssssi=<br>";
@@ -181,118 +179,29 @@ print("$count objectives found2.<br><br>");
 </table>
 <!-- <?php echo "<br>DATA in an array:<br> print_r($data) <br> "; ?>  -->
 
+<!--
 <?php
-$servername = "localhost";
-$dbname = "medSchlObj";
-$username = "roFromWeb";
-$password = "roPassword1";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-echo "did we get here2?";
-//foreach($discName as &$val)
-//  $val=$conn->quote($val); //iterate through array and quote
-//foreach($socName as &$val)
-//  $val=$conn->quote($val); //iterate through array and quote
- //  $discName = $_POST['cbDiscipline'];
- //  $socName = $_POST['cbSociety'];
- //  $searchTerm1 = $_POST['searchTerm1'];
- //  $searchTerm2 = $_POST['searchTerm2'];
- //  $cbTerm2 = $_POST['cbTerm2'];
-
-$columnsDyn = $colsToShow; // Build this from posted data
-//$colsDyn = "\"".implode('", "',$columnsDyn)."\""; // item1,item2,item4
-$colsDyn = implode(',',$columnsDyn); // item1,item2,item4
-$sqlDyn = "SELECT ".$colsDyn." FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ";
-// echo "sqlDyn with quotes = ".$sqlDyn;
-//$sth = $conn->prepare($sqlDyn);
-
- $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
- $sth->execute();
-$count = $sth->rowCount();
-print("$count objectives4 found.<br><br>");
-
-// Not using following - http://www.toppa.com/2008/generating-html-tables-with-a-variable-number-of-columns-and-rows/
-// foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $row) :
-echo "did we get here2?";
-//echo "<br><br>sqlDyn = ".$sqlDyn;
-echo "did we get here3?";
-
-
-
-$sqlDyn = "SELECT ".$colsDyn." FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ";
-$sth = $conn->prepare($sqlDyn);
- $sth->execute();
-
-$output = "<table class=\"table table-bordered\">\n  <tr>\n";
- 
-//$output = "<table>\n  <tr>\n";
-for ($i = 0; $i < count($columnsDyn); $i++) {
-      $output .= "    <th>" . $columnsDyn[$i] . "</th>\n";
-      echo "<br> i , columnsDyn[i] = " . $i . " , " . $columnsDyn[$i];
-  }
-$output .= "</tr>\n";
-
-  echo "<br>columnsDyn[0] = ".$columnsDyn[0]."<br>" ;
-  echo "<br>columnsDyn[1] = ".$columnsDyn[1]."<br>" ;
-  echo "<br>columnsDyn[2] = ".$columnsDyn[2]."<br>" ;
-  echo "<br>columnsDyn = ".$columnsDyn."<br>" ;
-  echo "<br>print_r columnsDyn = ".print_r($columnsDyn)."<br>" ;
-  echo "<br>count(columnsDyn) = ".count($columnsDyn)."<br>" ;
-
+<br><br>
+// desired number of columns - this can be any number
+$cols = 3;
+$output = "<table>\n";
 $cell_count = 1;
-$data = array();
-echo "<br><br>sqlDyn6 = ".$sqlDyn;
-echo "did we get here3?<br>";
-?>
-
-<?php foreach($sth->fetchAll(PDO::FETCH_BOTH) as $row) : ?>
-<?php  
-  // {$data[] = $row();
-
-  echo "<br>row[0] = ".$row[0]."<br>" ; 
-  echo "<br>row[1] = ".$row[1]."<br>" ; 
-  echo "<br>row[2] = ".$row[2]."<br>" ; 
-
-for ($i = 0; $i < count($row); $i++) {
-      $output .= "    <th>" . $row[$i] . "</th>\n";
-  }
-$output .= "</tr>\n";
-
-
-//  echo "<br>DATA in an count(row) = ".count($row) ; 
-//  echo "<br>DATA in an count(row,1) = ".count($row,1) ; 
-//  echo "<br>DATA in an var_dump(row) = ".var_dump($row) ; 
-//  echo "<br>DATA in an row = ".print_r($row) ; 
-//  foreach($row as $x => $x_value) {
-//    echo "Key=" . $row . ", Value=" . $row_value;
-//    echo "<br>";
-  
-//
-//  for ($i = 0; $i < count($row); $i++) {
-//    if ($cell_count == 1) {
-//        $output .= "<tr>\n";
-//    }
-//    $output .= "<td>$row[i][cell_count]</td>\n";
-//    $cell_count++;
-//
-//    // end the row if we've generated the expected number of columns
-//    // or if we're at the end of the array
-//    if ($cell_count > $colsDyn || $i == (count($data) - 1)) {
-//        $output .= "</tr>\n";
-//        $cell_count = 1;
-//    }} 
-// 
-
-//}
-?>
-
-<?php endforeach;?>
-<?php 
+for ($i = 0; $i < count($your_array); $i++) {
+    if ($cell_count == 1) {
+        $output .= "<tr>\n";
+    }
+    $output .= "<td>your cell content</td>\n";
+    $cell_count++;
+    // end the row if we've generated the expected number of columns
+    // or if we're at the end of the array
+    if ($cell_count > $cols || $i == (count($your_array) - 1)) {
+        $output .= "</tr>\n";
+        $cell_count = 1;
+    }
+}
 $output .= "</table>\n";
-echo "About to echo table below: <br>";
-echo $output;
 ?>
-
+--> 
 
 <!--
 ### HIGHLIGHT SEARCH TERM

@@ -20,6 +20,76 @@ td.zero_width {
     width: 1%;
 }
 
+
+
+// Creates a wrapper for a series of columns
+.make-row(@gutter: @grid-gutter-width) {
+  // Then clear the floated columns
+  .clearfix();
+
+  @media (min-width: @screen-sm-min) {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+
+  // Negative margin nested rows out to align the content of columns
+  .row {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+}
+
+// Generate the extra small columns
+.make-xs-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large columns
+.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @screen-lg-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large column offsets
+.make-lg-column-offset(@columns) {
+  @media (min-width: @screen-lg-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+
+.wrapper {
+  .make-row();
+}
+.content-main {
+  .make-lg-column(8);
+}
+.content-secondary {
+  .make-lg-column(3);
+  .make-lg-column-offset(1);
+}
+
+
 .sbBG {
     background-image: url("https://pixabay.com/static/uploads/photo/2014/04/02/10/55/health-304919_960_720.png");
     background-repeat: no-repeat;

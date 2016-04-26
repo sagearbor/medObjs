@@ -20,6 +20,7 @@
 <h2 class="text-center"> A searchable database from multiple national societies </h2><br>
 <link type="text/css" rel="stylesheet" href="site.css" </link>
 
+<!-- 
 <script language="JavaScript">
 var checkAll = document.getElementById("id_check_uncheck_all");
 checkAll.addEventListener("change", function() {
@@ -30,7 +31,7 @@ checkAll.addEventListener("change", function() {
   });
 });
 </script>
-
+-->   
 
 
 <script language="JavaScript">
@@ -42,18 +43,15 @@ function toggle(source) {
 }
 </script>
 
-
-
-
-
 </head>
 
 <body>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03/public_html <br>
-  , this was controlled by changing default path in mysite.conf
 <br>
+
+
+
 <br>
 <br>
 
@@ -62,9 +60,11 @@ Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03
 <div>
 -->
 <div class="row">
+
   <!--  <div class="col-12 col-sm-3 col-lg-3 left">  Select disciplines or societies to search below (all are included by default)  -->
   <!--  <div class="col-12 col-sm-3 col-lg-3 left"> Select disciplines or societies to search below <br> (all are included by default)<br>  -->
-  <div class="col-xs-3 col-sm-4 col-lg-4 left"> Select disciplines or societies to search below <br> (all are included by default)<br>
+  <!-- <div class="content-secondary">  SSelect disciplines or societies to search below <br> (all are included by default)<br>  --> 
+  <div class="col-xs-3 col-sm-4 col-lg-4 left"> Select disciplines or societies to search below <br> (all are included by default)<br> 
     <div class="sbBG-X">
       <?php require("sidebar.php"); ?>
     </div>
@@ -75,7 +75,21 @@ Test page med objv, cant be right STILL , at ... /var/www/html/bitlyMedObjsV0p03
 
 
 <!-- <div class="col-12 col-sm-9 col-lg-9 mn"> -->
-<div class="col-xs-9 col-sm-8 col-lg-8">
+<div class="col-xs-9 col-sm-8 col-lg-8"> 
+
+    Choose what to display from search (or leave deafult) : <br> 
+    <input type="checkbox" name="columnsSelected[]" id="author" value="author" checked /> Societies | 
+    <input type="checkbox" name="columnsSelected[]" id="year" value="year" checked /> Year | 
+    <input type="checkbox" name="columnsSelected[]" id="obj" value="obj" checked /> Objective | 
+    <input type="checkbox" name="columnsSelected[]" id="subHd1" value="subHd1" checked /> subHeadings | 
+    <input type="checkbox" name="columnsSelected[]" id="oNotes" value="oNotes" checked /> Notes | 
+    <input type="checkbox" name="columnsSelected[]" id="disc1" value="disc1" checked /> Disciplines | 
+    <input type="checkbox" name="columnsSelected[]" id="kw1" value="kw1" unchecked /> Keywords | 
+    <input type="checkbox" name="columnsSelected[]" id="PK_o" value="PK_o" unchecked /> PK-objNum | 
+    <input type="checkbox" name="columnsSelected[]" id="hrs" value="hrs" unchecked /> Hours | 
+    <input type="checkbox" name="columnsSelected[]" id="Answer" value="Answer" unchecked /> Objective Answer |  
+    <input type="checkbox" name="columnsSelected[]" id="rank" value="rank" unchecked /> Rank | 
+    <br><br>
 Enter search term below <br>
 
 <!--   <form action="sqlQuery.php" method="post" class="form-horizontal" role="form">    -->
@@ -111,13 +125,6 @@ Enter search term below <br>
 
 
 <br/><br/><br/>
-<input type="checkbox" onClick="toggle(this)" /> Toggle All<br/>
-
-<input type="checkbox" name="foo" value="bar1"> Bar 1<br/>
-<input type="checkbox" name="foo" value="bar2"> Bar 2<br/>
-<input type="checkbox" name="foo" value="bar3"> Bar 3<br/>
-<input type="checkbox" name="foo" value="bar4"> Bar 4<br/>
-
 
 
 </body>

@@ -68,7 +68,6 @@ function toggle2(source) {
             $servername = "localhost"; $dbname = "medSchlObj"; $username = "roFromWeb"; $password = "roPassword1";
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // $disciplines = $conn->prepare("SELECT displayName FROM disciplines WHERE inDB = 1");
             $disciplines = $conn->prepare("SELECT discipline FROM disciplines WHERE inDB = 1");
             $disciplines->execute();
           ?>
@@ -128,7 +127,7 @@ function toggle2(source) {
             <div class="input-group">
               <span class="input-group-addon">
                 <input type="checkbox" name="cbSociety[]" id="societyId" value="<?php echo $row['name']; ?>"  checked aria-label="...">
-              </span><span><?php echo $row['name']; ?></span>
+              </span><span style="float-left"><?php echo $row['name']; ?></span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>
           <?php endforeach;?>
