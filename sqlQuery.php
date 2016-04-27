@@ -4,12 +4,24 @@
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link  rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css" >
+
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
+<script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#objSearchTbl').dataTable();
+});
+</script>
 
 
 <head>
@@ -96,18 +108,13 @@ foreach($discName as &$val)
   $val=$conn->quote($val); //iterate through array and quote
 foreach($socName as &$val)
   $val=$conn->quote($val); //iterate through array and quote
-// $sth = $conn->prepare("SELECT * FROM Societies;");
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' LIMIT 5");
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND author IN (SELECT abbrev from societies)ame));
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND disc1 IN (".implode(',',$discName).") ");
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1,disc2,disc3 FROM objectives WHERE obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).") ");
 // $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
  $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
 
 
 $sth->execute();
 $count = $sth->rowCount();
-print("$count objectives found.<br><br>");
+//print("$count objectives found.<br><br>");
 ?>
 
 <?php
@@ -134,12 +141,13 @@ $sqlDyn = "SELECT ".$colsDyn." FROM objectives o INNER JOIN societies s ON s.abb
 $sth = $conn->prepare($sqlDyn);
  $sth->execute();
 
-$output = "<table class=\"table table-bordered\">\n  <tr>\n";
+//$output = "<table class=\"table table-bordered\ id=\"objSearchTbl\">\n  <tr>\n";
+$output = "<table class=\"table table-striped table-bordered\" id=\"objSearchTbl\">\n  <thead>    <tr>\n";
 for ($i = 0; $i < count($columnsDyn); $i++) {
-      $output .= "    <th>" . $columnsDyn[$i] . "</th>\n";
+      $output .= "      <th>" . $columnsDyn[$i] . "</th>\n";
       //echo "<br> i , columnsDyn[i] = " . $i . " , " . $columnsDyn[$i];
   }
-$output .= "</tr>\n";
+$output .= "    </tr>\n  </thead>\n";
 ?>
 
 <?php foreach($sth->fetchAll(PDO::FETCH_BOTH) as $row) : ?>

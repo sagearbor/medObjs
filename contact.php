@@ -13,26 +13,45 @@
 
 <div class="col-xs-12 col-sm-12 col-lg-12">
 
-<form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
-	<div class="row">
-		<label for="name">Your name:</label><br />
-		<input id="name" class="input" name="name" type="text" value="" size="30" /><br />
-	</div>
-	<div class="row">
-		<label for="email">Your email:</label><br />
-		<input id="email" class="input" name="email" type="text" value="" size="30" /><br />
-	</div>
-	<div class="row">
-		<label for="message">Your message:</label><br />
-		<textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
-	</div>
-	<input id="submit_button" type="submit" value="Send email" />
-</form>
-			
+
+<?php
+$action=$_REQUEST['action'];
+if ($action=="")    /* display the contact form */
+    {
+    ?>
+    <form  action="" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="action" value="submit">
+    Your name:<br>
+    <input name="name1" type="text" value="" size="30"/><br>
+    Your email:<br>
+    <input name="email1" type="text" value="" size="30"/><br>
+    Your message:<br>
+    <textarea name="message1" rows="7" cols="30"></textarea><br>
+    <input type="submit" value="Send email"/>
+    </form>
+    <?php
+    } 
+else                /* send the submitted data */
+    {
+    $name2=$_REQUEST['name1'];
+    $email2=$_REQUEST['email1'];
+    $message2=$_REQUEST['message1'];
+    if (($name2=="")||($email2=="")||($message2==""))
+        {
+        echo "All fields are required, please fill <a href=\"\">the form</a> again.";
+        }
+    else{        
+        $from2="From: $name2<$email2>\r\nReturn-path: $email2";
+        $subject2="Message sent using your contact form";
+        //mail("sarbor@marian.edu", $subject2, $message2, $from2);
+        mail("sarbor@marian.edu", $subject2, $message2);
+        echo "Email sent!";
+        }
+    }  
+?>
+
 </div>
 </body>
-
-
 
 <div id="footer">
   <br>

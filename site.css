@@ -1,5 +1,6 @@
 
-/*  <style type="text/css">  
+/* 
+<style type="text/css">  
 */
 
 body {
@@ -38,6 +39,7 @@ td.zero_width {
     margin-right: (@gutter / -2);
   }
 }
+
 
 // Generate the extra small columns
 .make-xs-column(@columns; @gutter: @grid-gutter-width) {
@@ -129,9 +131,46 @@ td.zero_width {
     background-color: transparent;
     border: 1px #222;}
 
+#footer {
+position: fixed;
+Width: 100%;
+bottom: 0;
+}
+
+/* float: right; */
+/*
+#footer {
+margin: 0px auto;
+width: 850px;
+}    
+#footer .social {
+padding: 30px 0;
+width: 425px;
+text-align: center;
+}
+#footer .copyright {
+padding: 30px 0;
+width: 425px;
+text-align: center;
+}
+*/
+
+/*
+<style type="text/css">  
+  #footer {  
+   bottom : 2; 
+   padding-bottom: 0; 
+   height : 40px;  
+   margin-top : 40px; 
+   margin: auto;
+   width: 50%;
+   text-align: center;  
+  }  
+</style> 
+*/
 
 
-
+/*
 footer {
     float: right;
     height: 35px;
@@ -142,13 +181,13 @@ footer {
     padding: 10px 30px;
     width: 180px;
 }
+*/
 
-
-
+               /*replace 900px with your width*/
+/*
         .wrap {
                 position:relative;
                 margin:0 auto;
-               /*replace 900px with your width*/
                 width:900px;
         }
 
@@ -163,6 +202,11 @@ footer {
                 z-index:999999;
         }
 
-/* </style>  */
+*/
 
+/* */
+
+/*
+</style> 
+*/
 
