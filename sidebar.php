@@ -81,9 +81,7 @@ function toggle2(source) {
                 <input type="checkbox" onClick="toggle(this)" /> Toggle Disciplines<br/>
                 <div>
                   <?php foreach($disciplines->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
-                    <!-- <input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['displayName']; ?>" checked aria-label="...">  -->
                     <div><input type="checkbox" name="cbDiscipline[]" id="disciplineId" value="<?php echo $row['discipline']; ?>" checked aria-label="..." />
-                      <!--  </span><label><?php echo $row['displayName']; ?></label>   -->
                       <label><?php echo $row['discipline']; ?></label>
                     </div>
                   <?php endforeach;?>
