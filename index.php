@@ -136,7 +136,7 @@ Enter search term below <br>
     <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
 <!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
   <div class="social"><p>
-    <a href="./contact.html"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
+    <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
     <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
     <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
   </div>

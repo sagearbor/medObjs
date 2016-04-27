@@ -44,10 +44,12 @@ else                /* send the submitted data */
         $from2="From: $name2<$email2>\r\nReturn-path: $email2";
         $subject2="Message sent using your contact form";
         //mail("sarbor@marian.edu", $subject2, $message2, $from2);
-        mail("sarbor@marian.edu", $subject2, $message2);
+        mail("sagearbor@gmail.com", $subject2, $message2);
         echo "Email sent!";
         }
     }  
+//mail("sarbor@marian.edu", "hard coded subject to sarbor", "hard coded message to sarbor" , "From: sage3@example.com");
+//mail("sagearbor@gmail.com", "hard coded subject to sarbor", "hard coded message to sarbor" , "From: sage3@example.com");
 ?>
 
 </div>
@@ -62,7 +64,7 @@ else                /* send the submitted data */
 <!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
   <div class="social"><p>
     <a href="./index.php"><span class="glyphicon glyphicon-home" aria-hidden="true">Home  |</a></span>
-    <a href="./contact.html"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
+    <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
     <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
     <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
   </div>
