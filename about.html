@@ -1,5 +1,23 @@
 
 <!DOCTYPE html>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#medSocTbl').dataTable();
+});
+</script>
+
+
 <html>
 <head>
 <title>About </title>
@@ -10,21 +28,299 @@
 
 <title> Medical School objectives DB </title><br>
 <h1 class="text-center"> Medical School objective DB  </h1><br>
-<h2 class="text-center"> A searchable database from multiple national societies </h2><br>
+<h2 class="text-center"><u> A searchable database from multiple national societies </u></h2><br>
 
 
-<p>This site was set up to allow searching of medical objectives across discplines.
+<p><font size="5">This site was set up to allow searching of medical objectives across discplines.
   The initial database was populated by objectives suggested for medical school by national societed from multiple disciplines (see table below).
-  Future work may allow for uploading of 
+<br>
+<!--  <table id="medSocTbl" class="table table-striped table-bordered" border="1" style="width:90%" align="center">  -->
+<table id="medSocTbl" class="table table-striped table-bordered" >
+  <caption>Objectives currently in database from societies</caption>
+  <thead>
+  <tr>
+    <th>Society</th>
+    <th>Year</th>
+    <th>Discipline</th>
+    <th># Objectives</th>
+    <th>Publication </th>
+  </tr>
+  </thead>
+  <tr>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons</td>
+    <td>1997</td>
+    <td>Anatomy</td>
+    <td>266</td>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons. (Spring 1997). "United States/Canadian Curriculum Content in the Anatomical Sciences".</td>
+  </tr>
+  <tr>
+    <td>Society for Education of Anesthesia</td>
+    <td>2009</td>
+    <td>Anesthesia</td>
+    <td>132</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Association of Directors of Medical Student Education in Psychiatry</td>
+    <td>2007</td>
+    <td>Behavioral Sciences</td>
+    <td>185</td>
+    <td>M. Burke et. al. ADMSE Psychiatry Learning Objectives Taskforce 2007. "Clinical Learning Objectives Guide for Psychiatry Education of Medical Students".</td>
+  </tr>
+  <tr>
+    <td>Association of American Medical Colleges</td>
+    <td>2011</td>
+    <td>Behavioral Sciences</td>
+    <td>18</td>
+    <td>AAMC Report of the Behavioral and Social Science Expert Panel. (November 2011). "Behavioral and Social Science Foundations for Future Physicians"</td>
+  </tr>
+  <tr>
+    <td>Association of Biochemistry Educators</td>
+    <td>2012</td>
+    <td>Biochemistry</td>
+    <td>394</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons</td>
+    <td>1997</td>
+    <td>Cell Biology</td>
+    <td>82</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Association of American Medical Colleges</td>
+    <td>2008</td>
+    <td>Clinical Medicine</td>
+    <td>237</td>
+    <td>E. Corbett et. al. AAMC Task Force On the Preclerkship Clinical Skills Education of Medical Students (2008). "Recommendations For Clinical Skills Curricula For Undergraduate Medical Education". </td>
+  </tr>
+  <tr>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons</td>
+    <td>1997</td>
+    <td>Embryology</td>
+    <td>304</td>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons. (Spring 1997). "United States/Canadian Curriculum Content in the Anatomical Sciences".</td>
+  </tr>
+  <tr>
+    <td>Society of Teachers of Family Medicine</td>
+    <td>2012</td>
+    <td>Family Medicine</td>
+    <td>158</td>
+    <td>H. Chumley et. al. Society of Teachers of Family Medicine. "The Family Medicine Clerkship Curriculum" February 2012.</td>
+  </tr>
+  <tr>
+    <td>Association of Professors of Human and Medical Genetics</td>
+    <td>2010</td>
+    <td>Genetics</td>
+    <td>103</td>
+    <td>K. Hyland et. al.  Association of Professors of Human and Medical Genetics. "APHMG Medical School Core Curriculum in Genetics 2013".</td>
+  </tr>
+  <tr>
+    <td>American College of Medical Genetics</td>
+    <td>2011</td>
+    <td>Genetics</td>
+    <td>291</td>
+    <td>Korf, B.R., Irons, M., and Watson, M.S. (2011). American College of Medical Genetics. "Competencies for the Physician Medical Geneticist in The 21st Century". Genet Med 13, 911–912.</td>
+  </tr>
+  <tr>
+    <td>Association for Gerontology in Higher Education</td>
+    <td>2008</td>
+    <td>Gerontology</td>
+    <td>33</td>
+    <td>Korf, B.R., Irons, M., and Watson, M.S. (2011). American College of Medical Genetics. "Competencies for the Physician Medical Geneticist in The 21st Century". Genet Med 13, 911–912.</td>
+  </tr>
+  <tr>
+    <td>Studies in Geriatric Education</td>
+    <td>1986</td>
+    <td>Gerontology</td>
+    <td>118</td>
+    <td>Robbins, A.S., Fink, A., Kosecoff, J., Vivell, S., and Beck, J.C. (1982). Studies in Geriatric Education: I. Developing Educational Objectives. Journal of the American Geriatrics Society 30, 281–288.</td>
+  </tr>
+  <tr>
+    <td>American Society of Hematology</td>
+    <td>2014</td>
+    <td>Hematology</td>
+    <td>216</td>
+    <td>American Society of Hematology. "Medical Student Hematology Course Learning Objectives" (2014).</td>
+  </tr>
+  <tr>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons</td>
+    <td>1997</td>
+    <td>Histology</td>
+    <td>157</td>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons. (Spring 1997). "United States/Canadian Curriculum Content in the Anatomical Sciences".</td>
+  </tr>
+  <tr>
+    <td>Clerkship Directors in Internal Medicine and Society of General Internal Medicine</td>
+    <td>2006</td>
+    <td>Internal Medicine</td>
+    <td>2,852</td>
+    <td>De Fer, T. M., Fazio, S. B., Goroll, A., Friedman, E., Henry, D. A., Kuzma, M. A., Sebastian, J. L., Ledford, C. H., Westmoreland, G., Ryan, K. F., Wolpaw, T. M., Baptista, N. V., and Clayton, C. P. (2006). "CORE MEDICINE CLERKSHIP CURRICULUM GUIDE A RESOURCE FOR TEACHERS AND LEARNERS Version 3.0"</td>
+  </tr>
+  <tr>
+    <td>International Association of Medical Science Educators</td>
+    <td>2009</td>
+    <td>Microbiology</td>
+    <td>1,344</td>
+    <td>Booth, SJ, Burges, G, Justement, L, and Knoop, F. "Design and Implementation of Core Knowledge Objectives for Medical Microbiology and Immunology. Journal of the International Association of Medical Science Educators" (JIAMSE), 19 (3): 100-138, 2009.</td>
+  </tr>
+  <tr>
+    <td>International Association of Medical Science Educators</td>
+    <td>2009</td>
+    <td>Immunology</td>
+    <td>1,160</td>
+    <td>Booth, SJ, Burges, G, Justement, L, and Knoop, F. "Design and Implementation of Core Knowledge Objectives for Medical Microbiology and Immunology. Journal of the International Association of Medical Science Educators" (JIAMSE), 19 (3): 100-138, 2009.</td>
+  </tr>
+  <tr>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons</td>
+    <td>1997</td>
+    <td>Neuroscience</td>
+    <td>98</td>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons. (Spring 1997). "United States/Canadian Curriculum Content in the Anatomical Sciences".</td>
+  </tr>
+  <tr>
+    <td>Association of Professors of Gynecology & Obstetrics</td>
+    <td>2009</td>
+    <td>Obstetrics & Gynecology</td>
+    <td>328</td>
+    <td>APGO Undergraduate Medical Education Committee (UMEC) 2008-2010: Hammoud, M. M., Casey, P. M., Chuang, A. W., Cullimore, A. J., Dalrymple, J. L.; Dugoff, L., Espey, L. E., Hueppchen, N. A., Kaczmarczyk, J. M., Katz, N. T., Nuthalapaty, F. S., Peskin, E. T. (2009). Association of Professors of Gynecology & Obstetrics. APGO Medical Student Educational Objectives 9th Edition.</td>
+  </tr>
+  <tr>
+    <td>Group for Research In Pathology Education</td>
+    <td>2005</td>
+    <td>Pathology</td>
+    <td>2,861</td>
+    <td>Group for Research in Pathology Edcucation. (2005). "GRIPE General Pathology Objectives".</td>
+  </tr>
+  <tr>
+    <td>Council on Medical Student Education in Pediatrics</td>
+    <td>2005</td>
+    <td>Pediatrics</td>
+    <td>383</td>
+    <td>Council on Medical Student Education in Pediatrics. (2005). "COMSEP Curriculum Revision 2005".</td>
+  </tr>
+  <tr>
+    <td>American Society for Pharmacology and Experimental Therapeutics</td>
+    <td>2012</td>
+    <td>Pharmacology</td>
+    <td>1307</td>
+    <td>Eisenberg, R., and Faingold, C. “Knowledge Objectives in Medical Pharmacology (2012 Edition).”  Association of Medical School Pharmacology Chairs.</td>
+  </tr>
+  <tr>
+    <td>The American Physiological Society and the Association of Chairs of Departments of Physiology</td>
+    <td>2012</td>
+    <td>Physiology</td>
+    <td>862</td>
+    <td>R. Carroll, L. Navar, M. Blaustein (2012). The American Physiological Society and the Association of Chairs of Departments of Physiology. Medical Physiology Learning Objectives.</td>
+  </tr>
+  <tr>
+    <td>Association of University Radiologists</td>
+    <td>2014</td>
+    <td>Radiology</td>
+    <td>106</td>
+    <td>R. Carroll, L. Navar, M. Blaustein (2012). The American Physiological Society and the Association of Chairs of Departments of Physiology. Medical Physiology Learning Objectives.</td>
+  </tr>
+</table>
+
+
+
+<br><br><br>
+  Future work could include below functionality (dependent on funding support).  If the below functionality would prove useful to you please send a letter of support to sagearbor@gmail.com to include in funding requests. 
   <ul> 
-    <li>updated objectives to replace old versions </li>
-    <li>new objectives from socities </li>
-    <li>specific objectives for an institution or individual </li>
-    <li>answers to objecives </li>
+    <li>User accounts  
+      <ul>
+        <li>Add personal notes to objectives - e.g. flag which ones you use.  </li>
+        <li>Auto-upload your personal objectives - either private view or open to world.   </li>
+      </ul>
+    </li>
+  <tr>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="http://www.aacbnc.com">link</a></td>
+    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons. (Spring 1997). "United States/Canadian Curriculum Content in the Anatomical Sciences".</td>
+  </tr>
+  <tr>
+    <td>Association of Professors of Gynecology & Obstetrics</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Group for Research In Pathology Education</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Council on Medical Student Education in Pediatrics</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>American Society for Pharmacology and Experimental Therapeutics</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>The American Physiological Society and the Association of Chairs of Departments of Physiology</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Association of University Radiologists</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+</table>
+
+
+
+<br><br><br>
+  Future work could include below functionality (dependent on funding support).  If the below functionality would prove useful to you please send a letter of support to sagearbor@gmail.com to include in funding requests. 
+  <ul> 
+    <li>User accounts  
+      <ul>
+        <li>Add personal notes to objectives - e.g. flag which ones you use.  </li>
+        <li>Auto-upload your personal objectives - either private view or open to world.   </li>
+      </ul>
+    </li>
+    <li>Objective answers 
+      <ul>
+        <li>Add answers to objectives.  </li>
+        <li>Thumb up best answers from others.  </li>
+      </ul>
+    </li>
+    <li>Keywords 
+      <ul>
+        <li>Unique words and phrases in objectives specified.  </li>
+        <li>Upload powerpoints - returns list of objectives suggested based on keywords.  </li>
+        <li>Upload entire curriculum as zipped powerpoints - returns coverage of suggested objectives and gaps.   </li>
+      </ul>
+    </li>
   </ul> 
 
-
-</p>
+</font></p>
 
 </body>
 
