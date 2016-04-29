@@ -45,7 +45,7 @@ function toggle(source) {
 
 </head>
 
-<body>
+<body id="bootstrap-overrides">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <br>
@@ -125,22 +125,22 @@ Enter search term below <br>
 
 <br/><br/><br/>
 
+  <div id="footer" >
+    <br>
+    <div class="copyright">
+      <a color="black"> Created by - Sage Arbor PhD </a><br>
+      <a href="mailto:sagearbor@gmail.com?Subject=Email%20from%20medical%20Objectives%20DB%20page." target="_top">sagearbor@gmail.com</a> <br>
+      <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
+    </div>
+    <!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
+    <div class="social"><p>
+      <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
+      <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
+      <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
+    </div>
+  </div>
 
 </body>
-
-<div id="footer">
-  <br>
-  <div class="copyright">
-    Created by - Sage Arbor PhD <br>
-    <a href="mailto:sagearbor@gmail.com?Subject=Email%20from%20medical%20Objectives%20DB%20page." target="_top">sagearbor@gmail.com</a> <br>
-    <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
-<!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
-  <div class="social"><p>
-    <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
-    <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
-    <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
-  </div>
-</div>
 
 </html>
 

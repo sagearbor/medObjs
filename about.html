@@ -1,30 +1,57 @@
 
 <!DOCTYPE html>
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.8/js/jquery.tablesorter.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+<!--
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.css" rel="stylesheet" media="screen">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/js/bootstrap.min.js"></script>
+    <script src="jquery.tablesorter.min.js"></script>
+-->
 
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
+<!--
 <script type="text/javascript">
 $(document).ready(function() {
   $('#medSocTbl').dataTable();
 });
 </script>
+-->
+
+<script type="text/javascript">
+$(document).ready(function() { 
+    // call the tablesorter plugin 
+    $("#medSocTbl").tablesorter({ 
+        // sort on the first column and third column, order asc 
+        sortList: [[0,0],[2,0]] 
+    }); 
+}); 
+</script>
+
+<!--
+<script>
+$(document).ready(function(){
+$(function(){
+$("#medSocTbl").tablesorter();
+});
+});
+</script>
+-->
 
 
 <html>
 <head>
 <title>About </title>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> </link>
 <link type="text/css" rel="stylesheet" href="site.css" </link>
 </head>
-<body>
+
+<body id="bootstrap-overrides">
 
 <title> Medical School objectives DB </title><br>
 <h1 class="text-center"> Medical School objective DB  </h1><br>
@@ -33,10 +60,12 @@ $(document).ready(function() {
 
 <p><font size="5">This site was set up to allow searching of medical objectives across discplines.
   The initial database was populated by objectives suggested for medical school by national societed from multiple disciplines (see table below).
+</font></p>
 <br>
 <!--  <table id="medSocTbl" class="table table-striped table-bordered" border="1" style="width:90%" align="center">  -->
-<table id="medSocTbl" class="table table-striped table-bordered" >
-  <caption>Objectives currently in database from societies</caption>
+<!-- <table id="medSocTbl" class="table table-striped table-bordered" >  -->
+<table id="medSocTbl" class="tablesorter" border="1" style="width:90%" align="center" > 
+  <caption><font size="4">Objectives currently in database from societies (click on headers to sort columns)</font></caption>
   <thead>
   <tr>
     <th>Society</th>
@@ -46,6 +75,7 @@ $(document).ready(function() {
     <th>Publication </th>
   </tr>
   </thead>
+  <tbody>
   <tr>
     <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons</td>
     <td>1997</td>
@@ -121,14 +151,14 @@ $(document).ready(function() {
     <td>2011</td>
     <td>Genetics</td>
     <td>291</td>
-    <td>Korf, B.R., Irons, M., and Watson, M.S. (2011). American College of Medical Genetics. "Competencies for the Physician Medical Geneticist in The 21st Century". Genet Med 13, 911–912.</td>
+    <td>Korf, B.R., Irons, M., and Watson, M.S. (2011). American College of Medical Genetics. "Competencies for the Physician Medical Geneticist in The 21st Century". Genet Med 13, 911-912.</td>
   </tr>
   <tr>
     <td>Association for Gerontology in Higher Education</td>
     <td>2008</td>
     <td>Gerontology</td>
     <td>33</td>
-    <td>Korf, B.R., Irons, M., and Watson, M.S. (2011). American College of Medical Genetics. "Competencies for the Physician Medical Geneticist in The 21st Century". Genet Med 13, 911–912.</td>
+    <td>Korf, B.R., Irons, M., and Watson, M.S. (2011). American College of Medical Genetics. "Competencies for the Physician Medical Geneticist in The 21st Century". Genet Med 13, 911-912.</td>
   </tr>
   <tr>
     <td>Studies in Geriatric Education</td>
@@ -221,80 +251,12 @@ $(document).ready(function() {
     <td>106</td>
     <td>R. Carroll, L. Navar, M. Blaustein (2012). The American Physiological Society and the Association of Chairs of Departments of Physiology. Medical Physiology Learning Objectives.</td>
   </tr>
+  </tbody>
 </table>
 
 
 
 <br><br><br>
-  Future work could include below functionality (dependent on funding support).  If the below functionality would prove useful to you please send a letter of support to sagearbor@gmail.com to include in funding requests. 
-  <ul> 
-    <li>User accounts  
-      <ul>
-        <li>Add personal notes to objectives - e.g. flag which ones you use.  </li>
-        <li>Auto-upload your personal objectives - either private view or open to world.   </li>
-      </ul>
-    </li>
-  <tr>
-    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a href="http://www.aacbnc.com">link</a></td>
-    <td>Association of Anatomy, Cell Biology, and Neurobiology Chairpersons. (Spring 1997). "United States/Canadian Curriculum Content in the Anatomical Sciences".</td>
-  </tr>
-  <tr>
-    <td>Association of Professors of Gynecology & Obstetrics</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Group for Research In Pathology Education</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Council on Medical Student Education in Pediatrics</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>American Society for Pharmacology and Experimental Therapeutics</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>The American Physiological Society and the Association of Chairs of Departments of Physiology</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Association of University Radiologists</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-
-</table>
-
-
 
 <br><br><br>
   Future work could include below functionality (dependent on funding support).  If the below functionality would prove useful to you please send a letter of support to sagearbor@gmail.com to include in funding requests. 
@@ -320,23 +282,47 @@ $(document).ready(function() {
     </li>
   </ul> 
 
-</font></p>
-
-</body>
-
-<div id="footer">
-  <br>
-  <div class="copyright">
-    Created by - Sage Arbor PhD <br>
-    <a href="mailto:sagearbor@gmail.com?Subject=Email%20from%20medical%20Objectives%20DB%20page." target="_top">sagearbor@gmail.com</a> <br>
-    <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
-<!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
-  <div class="social"><p>
-    <a href="./index.php"><span class="glyphicon glyphicon-home" aria-hidden="true">Home  |</a></span>
-    <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
-    <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
-    <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
+<br><br><br><br><br><br><br><br><br>
+<!--
+<div class="row">
+  <div id="footer" class="col-xs-3 col-sm-4 col-lg-4 left">
+    <br>
+    <div class="copyright">
+      <a color="black"> Created by - Sage Arbor PhD </a><br>
+      <a color="white"> Created by - Sage Arbor PhD </a><br>
+      <a href="mailto:sagearbor@gmail.com?Subject=Email%20from%20medical%20Objectives%20DB%20page." target="_top">sagearbor@gmail.com</a> <br>
+      <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
+    </div>
+    <!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
+    <div class="social"><p>
+      <a href="./index.php"><span class="glyphicon glyphicon-home" aria-hidden="true">Home  |</a></span>
+      <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
+      <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
+      <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
+    </div>
+  </div>
+  <div class="col-xs-9 col-sm-8 col-lg-8">
   </div>
 </div>
+-->
+
+
+  <div id="footer" >
+    <br>
+    <div class="copyright">
+      <a color="black"> Created by - Sage Arbor PhD </a><br>
+      <a href="mailto:sagearbor@gmail.com?Subject=Email%20from%20medical%20Objectives%20DB%20page." target="_top">sagearbor@gmail.com</a> <br>
+      <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
+    </div>
+    <!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
+    <div class="social"><p>
+      <a href="./index.php"><span class="glyphicon glyphicon-home" aria-hidden="true">Home  |</a></span>
+      <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
+      <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
+      <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
+    </div>
+  </div>
+
+</body>
 
 </html>

@@ -22,7 +22,6 @@ td.zero_width {
 }
 
 
-
 // Creates a wrapper for a series of columns
 .make-row(@gutter: @grid-gutter-width) {
   // Then clear the floated columns
@@ -131,11 +130,30 @@ td.zero_width {
     background-color: transparent;
     border: 1px #222;}
 
+
+
 #footer {
 position: fixed;
-Width: 100%;
+/*Width: 30%;*/
+Width: 350px;
 bottom: 0;
+color: white;
 }
+
+/* Using CSS Priorities : id=100pts , class=10pts , tagSelector=1pt ...  http://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css */
+#bootstrap-overrides .copyright {
+background-color: #003333;
+opacity: 0.9;
+color: black;
+}
+
+.social  {
+background-color: #003333;
+opacity: 0.8;
+color: white;
+}
+
+
 
 /* float: right; */
 /*
