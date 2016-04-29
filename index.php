@@ -94,9 +94,9 @@ Enter search term below <br>
 
 <!--   <form action="sqlQuery.php" method="post" class="form-horizontal" role="form">    -->
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-8">
     <div class="input-group">
-      <input type="text" name="searchTerm1" class="form-control" aria-labelledby="...WHAT">
+      <input type="text" name="searchTerm1" class="form-control" size="50">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 <!--
