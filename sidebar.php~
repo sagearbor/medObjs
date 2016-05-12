@@ -75,7 +75,7 @@ function toggle2(source) {
           <div class="col-lg-6">
             <div class="input-group">
               <span class="sbBGr">
-                <input type="checkbox" onClick="toggle(this)" /> Toggle All Disciplines<br/>
+                <input type="checkbox" onClick="toggle2(this)" /> Toggle All Disciplines<br/>
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 --><br>

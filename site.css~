@@ -115,7 +115,7 @@ td.zero_width {
     /*    opacity: 0.2;         */
     color:#fff;
     border:1px solid red;
-    background:rgba(100,100,100, 0.5);
+    background:rgba(100,100,100, 0.3);
 
 }
 
