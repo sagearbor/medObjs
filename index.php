@@ -127,7 +127,7 @@ Enter search term below <br>
 
 <br/><br/><br/>
 
-  <div id="footer" >
+  <div id="footer" class="footerClass" >
     <br>
     <div class="copyright">
       <a color="black"> Created by - Sage Arbor PhD </a><br>

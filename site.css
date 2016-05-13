@@ -147,27 +147,51 @@ td.zero_width {
     background-color: transparent;
     border: 1px #222;}
 
+/*
+.footerClass {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  padding: 1rem;
+  width: 250px;
+  text-align: right;
+}
+*/
+
+/*  a { color: inherit;}  */
 
 
 #footer {
-position: fixed;
-/*Width: 30%;*/
-Width: 350px;
-bottom: 0;
-color: white;
+  /* position: absolute; */
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+  padding: 1rem;
+  width: 300px;
+  /* background-color: #efefef;  */
+  text-align: right;
 }
+/*
+position: fixed;
+Width: 30%;
+Width: 200px;
+bottom: 0;
+float: right;
+color: white;
+*/
 
 /* Using CSS Priorities : id=100pts , class=10pts , tagSelector=1pt ...  http://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css */
 #bootstrap-overrides .copyright {
-background-color: #003333;
-opacity: 0.9;
+/* background-color: #003333;  
+opacity: 0.2; */
+background:rgba(100,100,100, 0.1);
 color: black;
 }
 
+
+
 .social  {
-background-color: #003333;
-opacity: 0.8;
-color: white;
+background:rgba(100,100,100, 0.2);
 }
 
 
