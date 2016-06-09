@@ -187,7 +187,7 @@ function toggle2(source) {
 
 </div>
 
-  <div style="background-image: url(https://pixabay.com/static/uploads/photo/2014/04/02/10/55/health-304919_960_720.png); background-repeat: no-repeat; background-size: contain; opacity: 0.8; background-position: bottom; z-index: 33;   " > <br><br><br> <br><br><br><br> <br><br></div>
+  <div style="background-image: url('files/images/health-304919_960_720.png'); background-repeat: no-repeat; background-size: contain; opacity: 0.8; background-position: bottom; z-index: 33;   " > <br><br><br> <br><br><br><br> <br><br></div>
 
 
 
