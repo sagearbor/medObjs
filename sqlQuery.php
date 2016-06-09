@@ -98,18 +98,18 @@ $(document).ready(function() {
   <div class="col-12 col-sm-9 col-lg-9 main">
 
 <?php
-$servername = "localhost";
-$dbname = "medSchlObj";
-$username = "roFromWeb";  
-$password = "roPassword1";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
+$settings = parse_ini_file("config.ini");
+foreach ($settings as $key => $setting) {
+    // Notice the double $$, this tells php to create a variable with the same name as key
+    $$key = $setting; 
+}
+$conn = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpw) or die ('I cannot connect  to the database because: ' . mysql_error());
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 foreach($discName as &$val)
   $val=$conn->quote($val); //iterate through array and quote
 foreach($socName as &$val)
   $val=$conn->quote($val); //iterate through array and quote
-// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,PK_o,hrs,oAns,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
- $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
+  $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
 
 
 $sth->execute();
@@ -118,11 +118,12 @@ $count = $sth->rowCount();
 ?>
 
 <?php
-$servername = "localhost";
-$dbname = "medSchlObj";
-$username = "roFromWeb";
-$password = "roPassword1";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password) or die ('I cannot connect  to the database because: ' . mysql_error());
+$settings = parse_ini_file("config.ini");
+foreach ($settings as $key => $setting) {
+    // Notice the double $$, this tells php to create a variable with the same name as key
+    $$key = $setting; 
+}
+$conn = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpw) or die ('I cannot connect  to the database because: ' . mysql_error());
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $columnsDyn = $colsToShow; // Build this from posted data

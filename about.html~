@@ -282,40 +282,15 @@ $("#medSocTbl").tablesorter();
     </li>
   </ul> 
 
-<br><br><br><br><br><br><br><br><br>
-    <!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
-    <div class="copyright">
-      <a> Created by - Sage Arbor PhD </a><br>
-      <a href="mailto:sagearbor@gmail.com?Subject=Email%20from%20medical%20Objectives%20DB%20page." target="_top">sagearbor@gmail.com</a> <br>
-      <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
-    </div>
-    <!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
-    <div class="social"><p>
-      <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
-      <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
-      <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
-    </div>
+<br><br><br><br>
 
-  <div id="footer" class="footerClass" >
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0oiqk41dv0h&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;lx=280&amp;ly=300" async="async"></script>
+
+<br><br>
+  <div id="footer">
     <br>
     <div class="copyright">
       <a> Created by - Sage Arbor PhD </a><br>
-      <a href="mailto:sagearbor@gmail.com?Subject=Email%20from%20medical%20Objectives%20DB%20page." target="_top">sagearbor@gmail.com</a> <br>
-      <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
-    </div>
-    <!-- Use glyphicons from bootstap   http://getbootstrap.com/components/ -->
-    <div class="social"><p>
-      <a href="./contact.php"><span class="glyphicon glyphicon-search" aria-hidden="true">Contact  |</a></span>
-      <a href="./about.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">About  |</a></span>
-      <a href="./help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</a></span>
-    </div>
-  </div>
-
-
-  <div id="footer" >
-    <br>
-    <div class="copyright">
-      <a color="black"> Created by - Sage Arbor PhD </a><br>
       <a href="mailto:sagearbor@gmail.com?Subject=Email%20from%20medical%20Objectives%20DB%20page." target="_top">sagearbor@gmail.com</a> <br>
       <a href="http://www.marian.edu/sage">www.marian.edu/sage</a>  <br>
     </div>

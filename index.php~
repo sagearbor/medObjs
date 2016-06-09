@@ -126,6 +126,8 @@ Enter search term below <br>
 
 
 <br/><br/><br/>
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0oiqk41dv0h&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;lx=280&amp;ly=300" async="async"></script>
+<br/><br/><br/>
 
   <div id="footer" class="footerClass" >
     <br>
