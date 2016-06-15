@@ -88,7 +88,7 @@ $(document).ready(function() {
     </div>
     <?php 
       echo "<br><u> Your Search Criteria is below </u><br>";
-      echo "<b>Search term1</b>: ".$searchTerm1." <br>";
+      echo "<b>Search term</b>: ".$searchTerm1." <br>";
       echo "<b>Disciplines</b>: ".implode(', ', $discName)."<br> AND <br>";
       echo "<b>Societies</b>: ".implode(', ', $socName)." <br>";
       //echo "<b>Search term2</b>: ".$srchTerm2." <br>";
@@ -109,12 +109,12 @@ foreach($discName as &$val)
   $val=$conn->quote($val); //iterate through array and quote
 foreach($socName as &$val)
   $val=$conn->quote($val); //iterate through array and quote
-  $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
 
+//  $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
+// $sth->execute();
+// $count = $sth->rowCount();
+// print("$count objectives found.<br><br>");
 
-$sth->execute();
-$count = $sth->rowCount();
-//print("$count objectives found.<br><br>");
 ?>
 
 <?php
@@ -127,11 +127,13 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpw) or die ('I ca
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $columnsDyn = $colsToShow; // Build this from posted data
+// print("$columnsDyn <br>");
 $colsDyn = implode(',',$columnsDyn); // item1,item2,item4
+//print("$colsDyn <br>");
 $sqlDyn = "SELECT ".$colsDyn." FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ";
-$sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
-$sth->execute();
-$count = $sth->rowCount();
+// $sth = $conn->prepare("SELECT author,year,obj,subHd1,kw1,oNotes,disc1 FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ");
+// $sth->execute();
+// $count = $sth->rowCount();
 
 // Not using following - http://www.toppa.com/2008/generating-html-tables-with-a-variable-number-of-columns-and-rows/
 // foreach($sth->fetchAll(PDO::FETCH_ASSOC) as $row) :
@@ -177,11 +179,13 @@ echo $output;
 ###   http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html
 -->
 
-<?php   
+<?php  
+/*
   echo "
     <script type=\"text/javascript\">
     $('body').text().highlight('$searchTerm') 
     </script>"; 
+ */
 ?>
 
 </div>

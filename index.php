@@ -80,17 +80,19 @@ function toggle(source) {
 <div class="col-xs-9 col-sm-8 col-lg-8"> 
 
     Choose what to display from search (or leave deafult) : <br> 
-    <input type="checkbox" name="columnsSelected[]" id="author" value="author" checked /> Societies | 
-    <input type="checkbox" name="columnsSelected[]" id="year" value="year" checked /> Year | 
     <input type="checkbox" name="columnsSelected[]" id="obj" value="obj" checked /> Objective | 
-    <input type="checkbox" name="columnsSelected[]" id="subHd1" value="subHd1" checked /> subHeadings | 
-    <input type="checkbox" name="columnsSelected[]" id="oNotes" value="oNotes" checked /> Notes | 
     <input type="checkbox" name="columnsSelected[]" id="disc1" value="disc1" checked /> Disciplines | 
+    <input type="checkbox" name="columnsSelected[]" id="year" value="year" unchecked /> Year | 
+    <input type="checkbox" name="columnsSelected[]" id="author" value="author" unchecked /> Societies | 
+    <input type="checkbox" name="columnsSelected[]" id="subHd1" value="subHd1" unchecked /> subHeadings | 
+    <input type="checkbox" name="columnsSelected[]" id="oNotes" value="oNotes" unchecked /> Notes | 
+<!--
     <input type="checkbox" name="columnsSelected[]" id="kw1" value="kw1" unchecked /> Keywords | 
     <input type="checkbox" name="columnsSelected[]" id="PK_o" value="PK_o" unchecked /> PK-objNum | 
     <input type="checkbox" name="columnsSelected[]" id="hrs" value="hrs" unchecked /> Hours | 
     <input type="checkbox" name="columnsSelected[]" id="Answer" value="Answer" unchecked /> Objective Answer |  
     <input type="checkbox" name="columnsSelected[]" id="rank" value="rank" unchecked /> Rank | 
+-->
     <br><br>
 Enter search term below <br>
 
