@@ -64,7 +64,28 @@ $(document).ready(function() {
   $searchTerm1 = $_POST['searchTerm1'];
   $searchTerm2 = $_POST['searchTerm2'];
   $cbTerm2 = $_POST['cbTerm2'];
-  $colsToShow = $_POST['columnsSelected'];
+  $colsToShowRaw = $_POST['columnsSelected'];
+
+  //var_dump($colsToShowRaw);
+  //echo "<br>" ;
+  if (in_array("subHd1",$colsToShowRaw,TRUE))  { array_push($colsToShowRaw,"subHd2","subHd3"); }
+  //if (in_array("disc1",$colsToShowRaW,TRUE))  { array_push($colsToShowRaw,"disc2","disc3"); }
+  //// VERY UGLY ATTEMPT TO REMOVE EMPTY COLUMNS OF DISCIPLINES, 
+  //// COULDNT FIGURE HEADERS OUT SO COMMENTED OUT BELOW
+  //// BELOW FIRST LINE NEEDED DUE TO SECOND VARIABLE I USED colsToShow vs colsToShowRaw
+  $colsToShow = str_replace("disc1", "disc1" , $colsToShowRaw);
+  //$colsToShow = str_replace("disc1", "disc1 as DisciplineMain" , $colsToShowRaw);
+  //var_dump($colsToShow);
+  ////echo "<br>" ;
+  //if (in_array("disc1",$colsToShowRaw,TRUE))  { $colsToShow2 = str_replace("disc1", "disc1 as disciplines" , $colsToShowRaw); }
+  //////var_dump($colsToShow2);
+  //echo "<br>" ;
+  // COMMENTING OUT BELOW, IT WORKS BUT HEADER IN TABLE IS AWEFUL CASE BELOW, NOT 'DISCIPLINES' AS DESIRED
+  //$colsToShow = str_replace("disc1", "CASE WHEN disc1 is not null and disc1<>\"\" and disc2 is not null and disc2<>\"\" and disc3 is not null and disc3 <> \"\" THEN concat(disc1,\", \",disc2,\", \",disc3) WHEN disc1 is not null and disc1<>\"\" and disc2 is not null and disc2<>\"\" and (disc3 is null or disc3=\"\") THEN concat(disc1,\", \",disc2) WHEN disc1 is not null and disc1<>\"\" and (disc2 is null or disc2=\"\") and (disc3 is null or disc3=\"\") THEN disc1 END as \"disciplines\" " , $colsToShowRaw); 
+
+  //var_dump($colsToShow);
+  //echo "<br>" ;
+
 ?>
 
 <!-- 
@@ -98,6 +119,7 @@ $(document).ready(function() {
   <div class="col-12 col-sm-9 col-lg-9 main">
 
 <?php
+// READ PARAMTERS TO QUERY SQL DB      
 $settings = parse_ini_file("config.ini");
 foreach ($settings as $key => $setting) {
     // Notice the double $$, this tells php to create a variable with the same name as key
@@ -115,19 +137,9 @@ foreach($socName as &$val)
 // $count = $sth->rowCount();
 // print("$count objectives found.<br><br>");
 
-?>
-
-<?php
-$settings = parse_ini_file("config.ini");
-foreach ($settings as $key => $setting) {
-    // Notice the double $$, this tells php to create a variable with the same name as key
-    $$key = $setting; 
-}
-$conn = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpw) or die ('I cannot connect  to the database because: ' . mysql_error());
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 $columnsDyn = $colsToShow; // Build this from posted data
-// print("$columnsDyn <br>");
+// print "Fiddling around making some things better for a few hours , <b> June 15th, Sage Arbor </b> <br>";
+// var_dump($columnsDyn);
 $colsDyn = implode(',',$columnsDyn); // item1,item2,item4
 //print("$colsDyn <br>");
 $sqlDyn = "SELECT ".$colsDyn." FROM objectives o INNER JOIN societies s ON s.abbrev = o.author AND s.name in (".implode(',',$socName).") AND obj LIKE '%$searchTerm1%' AND (disc1 IN (".implode(',',$discName).") OR disc2 IN (".implode(',',$discName).") OR disc3 IN (".implode(',',$discName).")) ";
