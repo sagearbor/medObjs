@@ -57,6 +57,12 @@ $("#medSocTbl").tablesorter();
 <h1 class="text-center"> Medical School objective DB  </h1><br>
 <h2 class="text-center"><u> A searchable database from multiple national societies </u></h2><br>
 
+    <div class="text-center" id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-56944151-3'}, 'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 <p><font size="5">This site was set up to allow searching of medical objectives across discplines.
   The initial database was populated by objectives suggested for medical school by national societed from multiple disciplines (see table below).

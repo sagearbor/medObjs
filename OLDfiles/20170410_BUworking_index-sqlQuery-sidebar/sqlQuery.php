@@ -53,21 +53,8 @@ $(document).ready(function() {
 <title> Medical School objectives </title><br>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<h1 class="text-center"> Medical School objective DB  </h1>
-<h2 class="text-center"> A searchable database from multiple national societies </h2>
-
-    <div class="text-center" id="google_translate_element">Results can seen in most languages, select a language in dropdown below</div><script type="text/javascript">
-    function googleTranslateElementInit() {
-        // BELOW DOES AUTOLOCATE USER BUT DOES NOT HIDE DROPDOWN IF FROM DEAFULT LANGUAGE COUNTRY
-        // new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-56944151-3'}, 'google_translate_element');
-      // BELOW DOES AUTOLOCATE USER AND SHOWS DROPDOWN TO AUTOTANSLATE ONLY IF DIFFERENT LANGUAGE
-      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-56944151-3'}, 'google_translate_element');
-    }
-    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
-<link type="text/css" rel="stylesheet" href="site.css" </link>
-
+<h1 class="text-center"> Medical School objectives </h1><br>
+<h2 class="text-center"> A searchable database from multiple national societies </h2><br>
 
 <br><br>
 

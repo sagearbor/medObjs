@@ -58,10 +58,7 @@ $(document).ready(function() {
 
     <div class="text-center" id="google_translate_element">Results can seen in most languages, select a language in dropdown below</div><script type="text/javascript">
     function googleTranslateElementInit() {
-        // BELOW DOES AUTOLOCATE USER BUT DOES NOT HIDE DROPDOWN IF FROM DEAFULT LANGUAGE COUNTRY
-        // new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-56944151-3'}, 'google_translate_element');
-      // BELOW DOES AUTOLOCATE USER AND SHOWS DROPDOWN TO AUTOTANSLATE ONLY IF DIFFERENT LANGUAGE
-      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-56944151-3'}, 'google_translate_element');
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-56944151-3'}, 'google_translate_element');
     }
     </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 

@@ -16,16 +16,8 @@
 
 <head>  
 <title> Medical School objectives DB </title><br>
-<h1 class="text-center"> Medical School objective DB  </h1>
-<h2 class="text-center"> A searchable database from multiple national societies </h2>
-
-    <div class="text-center" id="google_translate_element"></div><script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-56944151-3'}, 'google_translate_element');
-    }
-    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
+<h1 class="text-center"> Medical School objective DB  </h1><br>
+<h2 class="text-center"> A searchable database from multiple national societies </h2><br>
 <link type="text/css" rel="stylesheet" href="site.css" </link>
 
 <!-- 
@@ -101,10 +93,8 @@ function toggle(source) {
     <input type="checkbox" name="columnsSelected[]" id="Answer" value="Answer" unchecked /> Objective Answer |  
     <input type="checkbox" name="columnsSelected[]" id="rank" value="rank" unchecked /> Rank | 
 -->
-    <br>
-    <br>
-
-Enter search term below (you must search for English words)<br>
+    <br><br>
+Enter search term below <br>
 
 <!--   <form action="sqlQuery.php" method="post" class="form-horizontal" role="form">    -->
 <div class="row">
